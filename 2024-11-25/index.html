@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<style>
+			table.pirma-lentele tr td {
+				/* text-align savybė - nustato lygiavimą */
+				text-align: right;
+                color: blue;
+			}
+            table.pirma-lentele {
+                width: 500px;
+                margin-top: 40px;
+                margin-left: 40px;
+                margin-bottom: 20px;
+
+            }
+            table, th, td{
+                /*  */
+                border: 1px solid black;
+                /* Border collapse - sujungia kraštinių linijas */
+                border-collapse: collapse;
+            }
+            th.eil-nr{
+                width: 50px;
+            }
+            th.vardo-st{
+                width: 150px;
+            }
+            h1{
+                /* Margin - paraštė */
+                margin: 0;
+            }
+		</style>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<title>Justino puslapis</title>
+	</head>
+	<body>
+		<h1>parasius teksta</h1>
+		<h1>parasius teksta</h1>
+		<p>Lorem ipsum dolor sit.</p>
+		<!-- div - division -->
+		<div>zodis</div>
+		<div>zodis</div>
+
+		<b>zodis1</b>
+		<i>zodis2</i>
+		<!--  -->
+		<span>zodis3</span>
+
+		<table class="pirma-lentele">
+			<!-- Table row -->
+			<tr>
+				<!-- Table Header -->
+				<th class="eil-nr">Eil. nr</th>
+				<th class="vardo-st">Vardas</th>
+				<th>Pavardė</th>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>Antanas</td>
+				<td>Nedzinskas</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>Tomas</td>
+				<td>Tomašauskas</td>
+			</tr>
+		</table>
+
+
+
+        <table style="width: 300px">
+			<!-- Table row -->
+			<tr>
+				<!-- Table Header -->
+				<th>Eil. nr</th>
+				<th>Vardas</th>
+				<th>Pavardė</th>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>Antanas</td>
+				<td>Nedzinskas</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>Tomas</td>
+				<td>Tomašauskas</td>
+			</tr>
+		</table>
+	</body>
+</html>
