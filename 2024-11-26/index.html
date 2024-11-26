@@ -8,27 +8,68 @@
 		/>
 		<title>Document</title>
 		<style>
+			/* 
+            Spec. selektorius apibrėžiantis bet kokį elementą
+            * {
+				margin: 0;
+                padding: 0;
+                
+			} 
+            */
 			.box {
 				width: 300px;
 				height: 300px;
 				/* Nustatyi fono spalvai */
 				background-color: rgb(159, 209, 209);
+
+				/* Flexbox pozicionavimo įjungimas */
+				display: flex;
+				/* Horizontalus pozicionavimas flex'e: start, center, end */
+				justify-content: center;
+				/* Vertikaliam pozicionavimui flex'e:  */
+				align-items: center;
+				/* gap */
+				gap: 10px;
 			}
 			.box-smaller {
+				width: 20%;
+				height: 40%;
+				background-color: rgb(115, 233, 119);
+			}
+			.box-medium {
 				width: 100px;
 				height: 100px;
-				background-color: rgb(159, 209, 171);
+				background-color: bisque;
+				border: 1px solid black;
+				padding: 10px 20px;
 			}
 			.text-right {
 				/* Horizontali lygiuotė */
-				text-align: right;
+				text-align: center;
+				/* Vertikali lygiuotė */
+				line-height: 80px;
+			}
+			.margin-bottom {
+				margin-bottom: 20px;
+			}
+			.margin-top {
+				margin: 10px;
 			}
 		</style>
 	</head>
 	<body>
-		<div class="box text-right">
+		<!-- <div class="box text-right">
 			<div class="box-smaller">tekstas</div>
-		</div>
+			<div class="box-smaller">tekstas</div>
+			<div class="box-smaller">tekstas</div>
+		</div> -->
 		<p class="text-right">desine</p>
+
+		<div class="box-medium margin-bottom">
+			Lorem ipsum dolor sit amet consectetur adipisicing elit.
+		</div>
+		<div class="box-medium margin-top">
+			Lorem ipsum dolor sit amet consectetur adipisicing elit.
+		</div>
 	</body>
 </html>
