@@ -1,0 +1,92 @@
+body {
+	margin: 0;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+nav {
+	background-color: #222222;
+	/* height: 60px; */
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.nav-links {
+	/* height: 100%; */
+	display: flex;
+	align-items: center;
+	gap: 20px;
+}
+
+.nav-link {
+	color: lightgrey;
+	text-decoration: none;
+	padding: 15px;
+}
+/* .nav-link, ant kurio šiuo metu užvesta pelytė */
+.nav-link:hover {
+	color: white;
+	background-color: black;
+}
+
+.nav-link-active {
+	/* display: inline-block; */
+	background-color: black;
+	/* height: 100%; */
+	color: white;
+	/* line-height: 60px; */
+}
+
+input {
+	padding: 5px;
+	border-radius: 5px;
+	padding: 6px 12px;
+
+	border: none;
+	/* Outline - vidinis apvadas */
+	outline: none;
+}
+
+/* ivesties laukelis, kuris siuo metu yra pažymėtas kaip aktyvus */
+input:focus {
+	/* outline: 4px solid rgb(192, 217, 104); */
+	box-shadow: 0px 0px 7px rgb(119, 165, 250);
+}
+
+.button {
+	padding: 6px 12px;
+	border-radius: 5px;
+	cursor: pointer;
+	border: none;
+}
+
+.button-blue {
+	background-color: #337ab7;
+	color: white;
+}
+.button-blue:hover {
+	background-color: #265f91;
+}
+
+#hero {
+	background-color: #9acd32;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	padding: 50px 0;
+}
+
+.greenyellow {
+	color: greenyellow;
+}
+
+h1 {
+	margin: 0;
+	font-size: 60px;
+	font-weight: 400;
+}
+
+/* .klase
+elementas
+#id */
