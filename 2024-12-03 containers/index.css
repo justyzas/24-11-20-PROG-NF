@@ -1,0 +1,26 @@
+body {
+	margin: 0;
+}
+nav {
+	background-color: #222222;
+}
+a {
+	color: white;
+	text-decoration: none;
+}
+
+.container {
+	margin: 0 auto;
+	max-width: 1000px;
+}
+.nav-layout {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px 0;
+}
+
+section#hero {
+	background-color: lawngreen;
+	padding: 60px 0;
+}
