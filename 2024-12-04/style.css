@@ -1,0 +1,56 @@
+* {
+	margin: 0;
+}
+body {
+	margin: 0;
+	color: white;
+	background: linear-gradient(rgb(56, 56, 56), rgb(24, 24, 24) 30%);
+	min-height: 100vh; /* 1vh = 1% ekrano aukščio*/
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+	max-width: 1000px;
+	margin: 0 auto;
+}
+.header-section {
+	display: flex;
+	gap: 40px;
+	/* justify-content: space-between; */
+	div.playlist-details {
+		display: flex;
+		flex-direction: column;
+		justify-content: end;
+		gap: 10px;
+		h3 {
+			font-size: 36px;
+		}
+	}
+}
+
+.icon-button {
+	border: 1px solid white;
+	border-radius: 100%;
+	padding: 3px;
+	width: 24px;
+	i {
+		position: relative;
+	}
+	.bi-heart {
+		top: 2px;
+	}
+	.bi-three-dots {
+		top: 1px;
+	}
+}
+.image-container {
+	position: relative;
+	.image-icon {
+		position: absolute;
+		top: 10px;
+		left: 10px;
+	}
+}
+img {
+	width: 200px;
+}
