@@ -1,0 +1,68 @@
+* {
+	margin: 0;
+}
+body {
+	margin: 0;
+	color: white;
+	background: linear-gradient(rgb(56, 56, 56), rgb(24, 24, 24) 30%);
+	min-height: 100vh; /* 1vh = 1% ekrano aukščio*/
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+	max-width: 1000px;
+	margin: 0 auto;
+}
+
+.icon-button {
+	border: 1px solid white;
+	border-radius: 100%;
+	padding: 3px;
+	width: 24px;
+	height: 24px;
+	position: relative;
+	cursor: pointer;
+	i {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+	.bi-heart {
+		transform: translate(-50%, -40%);
+	}
+	/* 
+	.bi-three-dots {
+		top: 1px;
+	} */
+}
+.icon-button:hover {
+	/* color: rgb(174, 165, 165);
+	border: 1px solid rgb(174, 165, 165); */
+	background-color: rgb(172, 172, 172);
+}
+
+.image-container {
+	position: relative;
+	.image-icon {
+		color: rgba(255, 255, 255, 0.6); /* red, green, blue */
+		/* opacity: 4%; */
+		position: absolute;
+		top: 10px;
+		left: 10px;
+	}
+}
+
+.play-button {
+	background-color: #1db954;
+	color: white;
+	border-radius: 18px;
+	padding: 7px 35px;
+	border: none;
+	text-transform: uppercase;
+	font-size: 10px;
+	cursor: pointer;
+}
+.play-button:hover {
+	background-color: #15843c;
+}

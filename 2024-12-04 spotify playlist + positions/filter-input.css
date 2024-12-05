@@ -1,0 +1,18 @@
+.filter-input {
+	margin-top: 35px;
+	display: flex;
+	align-items: center;
+	i {
+		font-size: 20px;
+		cursor: pointer;
+	}
+	input {
+		width: 100%;
+		background-color: rgba(0, 0, 0, 0.1);
+		border: none;
+		outline: none;
+		color: white;
+		margin-left: 10px;
+		padding: 7px 20px;
+	}
+}
