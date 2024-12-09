@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<title>Document</title>
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="inputs.css"
+		/>
+	</head>
+	<body>
+		<!-- Input tag'as, skirtas naudotojo įvesčiai -->
+		<form>
+			<!-- Label - etiketė įvesties laukeliui -->
+			<label for="email">Vardas</label>
+			<div>
+				<div class="input-container">
+					<input
+						type="email"
+						class="basic-input"
+						id="email"
+						name="vardas"
+						placeholder="Pvz. Jonaitis"
+						required
+					/>
+					<div class="icon-adornment-bg">
+						<i class="bi bi-envelope-at-fill"></i>
+					</div>
+				</div>
+			</div>
+			<div>
+				<div class="input-container">
+					<input
+						type="tel"
+						class="basic-input"
+						placeholder="Pvz: +3706000000"
+						required
+						maxlength="11"
+						minlength="9"
+						name="telefonas"
+					/>
+					<div class="icon-adornment-bg">
+						<i class="bi bi-phone-fill"></i>
+					</div>
+				</div>
+			</div>
+			<div>
+				<div class="input-container">
+					<input
+						type="date"
+						class="basic-input"
+						placeholder="PVZ.: 2024-12-09"
+						name="gimimo data"
+						max="2024-12-09"
+						min="1938-01-01"
+					/>
+					<div class="icon-adornment-bg">
+						<i class="bi bi-calendar-day-fill"></i>
+					</div>
+				</div>
+			</div>
+			<div>
+				<input
+					type="checkbox"
+					name="terms-conditions"
+					id="terms-conditions"
+					required
+				/>
+				<label for="terms-conditions"
+					>Ar sutinkate su salygomis bei taisyklėmis</label
+				>
+			</div>
+			<div>
+				<input
+					type="checkbox"
+					name="notifications-preffered"
+					id="notifications-preffered"
+				/>
+				<label for="notifications-preffered"
+					>Ar sutinkate gauti naujienlaiškius?</label
+				>
+			</div>
+			<div>
+				<label for="vilnius">Vilnius</label>
+				<input
+					type="radio"
+					name="branch"
+					id="vilnius"
+				/>
+				<label for="kaunas">Kaunas</label>
+				<input
+					type="radio"
+					name="branch"
+					id="kaunas"
+				/>
+				<label for="klaipeda">Klaipeda</label>
+				<input
+					type="radio"
+					name="branch"
+					id="klaipeda"
+				/>
+			</div>
+			<div>
+				<label for="fav-color">Mėgstamiausia spalva</label>
+				<input
+					type="color"
+					name="color"
+					id="fav-color"
+					value="#FFFFFF"
+				/>
+			</div>
+			<div>
+				<label for="avatar">Įkelkite profilio nuotrauką:</label>
+
+				<input
+					type="file"
+					id="avatar"
+					name="avatar"
+					accept="image/png, image/jpeg"
+				/>
+			</div>
+			<button>Išsiūsti</button>
+		</form>
+	</body>
+</html>

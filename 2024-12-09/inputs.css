@@ -1,0 +1,38 @@
+.basic-input {
+	padding: 8px 10px 8px 40px;
+	outline: none;
+	border: 1px solid grey;
+	border-radius: 4px;
+}
+
+.basic-input:focus {
+	/* box-shadow: 1px 1px 8px rgb(77, 224, 207); */
+	background-color: rgb(236, 236, 236);
+}
+
+.input-container {
+	display: inline-block;
+	position: relative;
+	border-radius: 4px;
+	overflow: hidden;
+	.icon-adornment-bg {
+		height: 100%;
+		width: 30px;
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		background: rgb(168, 168, 168);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		color: white;
+	}
+}
+
+#email:invalid {
+	border: 2px solid red;
+}
+
+#email:valid {
+	border: 2px solid greenyellow;
+}
