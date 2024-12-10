@@ -1,0 +1,14 @@
+main#hero {
+	background: url(../assets/hero-bg.png);
+	background-size: cover;
+	padding-top: 200px;
+	.container {
+		.hero {
+			display: flex;
+			gap: 40px;
+			* {
+				width: 50%;
+			}
+		}
+	}
+}

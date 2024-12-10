@@ -1,0 +1,66 @@
+/* čia dėsiu visus dalykus susijusius su šriftais, 
+jų dydžiais, italicais ,boldais ir t.t. */
+
+@font-face {
+	font-family: "Cerebri-Bold";
+	src: url("./fonts/Cerebri.Sans.Pro/CerebriSansPro-Bold.otf")
+		format("opentype");
+}
+@font-face {
+	font-family: "Cerebri";
+	src: url("./fonts/Cerebri.Sans.Pro/CerebriSansPro-Regular.otf")
+		format("opentype");
+}
+
+.mandali-regular {
+	font-family: "Mandali", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+}
+
+.cerebri-bold {
+	font-family: "Cerebri-Bold", sans-serif;
+	letter-spacing: 1px;
+	line-height: 60px;
+}
+
+.cerebri {
+	font-family: "Cerebri-Bold", sans-serif;
+}
+
+/* ŠRIFTŲ DYDŽIAI */
+.text-md {
+	font-size: 16px;
+}
+.text-lg {
+	font-size: 18px;
+}
+.text-xl {
+	font-size: 30px;
+}
+.text-xxl {
+	font-size: 40px;
+}
+.text-xxxl {
+	font-size: 60px;
+}
+.text-dark {
+	color: #343a40;
+}
+/* SPALVOS */
+.text-muted-semi {
+	/* Biski permatomas */
+	color: #212529bf;
+}
+.text-muted {
+	color: #212529;
+}
+.text-gray {
+	color: #6c757d;
+}
+.text-theme {
+	color: #1ce1ac;
+}
+a {
+	text-decoration: none;
+}
