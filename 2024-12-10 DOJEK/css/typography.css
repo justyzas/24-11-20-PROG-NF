@@ -3,12 +3,12 @@ jų dydžiais, italicais ,boldais ir t.t. */
 
 @font-face {
 	font-family: "Cerebri-Bold";
-	src: url("./fonts/Cerebri.Sans.Pro/CerebriSansPro-Bold.otf")
+	src: url("../fonts/Cerebri.Sans.Pro/CerebriSansPro-Bold.otf")
 		format("opentype");
 }
 @font-face {
 	font-family: "Cerebri";
-	src: url("./fonts/Cerebri.Sans.Pro/CerebriSansPro-Regular.otf")
+	src: url("../fonts/Cerebri.Sans.Pro/CerebriSansPro-Regular.otf")
 		format("opentype");
 }
 
@@ -21,7 +21,7 @@ jų dydžiais, italicais ,boldais ir t.t. */
 .cerebri-bold {
 	font-family: "Cerebri-Bold", sans-serif;
 	letter-spacing: 1px;
-	line-height: 60px;
+	line-height: 1.2;
 }
 
 .cerebri {
@@ -29,6 +29,12 @@ jų dydžiais, italicais ,boldais ir t.t. */
 }
 
 /* ŠRIFTŲ DYDŽIAI */
+.text-xs {
+	font-size: 8px;
+}
+.text-sm {
+	font-size: 12px;
+}
 .text-md {
 	font-size: 16px;
 }
@@ -61,6 +67,10 @@ jų dydžiais, italicais ,boldais ir t.t. */
 .text-theme {
 	color: #1ce1ac;
 }
+.text-secondary {
+	color: #536796;
+}
+
 a {
 	text-decoration: none;
 }
