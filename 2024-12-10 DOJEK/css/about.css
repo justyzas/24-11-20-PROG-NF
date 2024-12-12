@@ -22,6 +22,9 @@
 		gap: 30px;
 		a {
 			color: orangered;
+			i {
+				margin-left: 10px;
+			}
 		}
 	}
 }
