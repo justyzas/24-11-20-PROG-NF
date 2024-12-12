@@ -1,7 +1,7 @@
 #about {
 	background-color: #f8f9fa;
 	padding: 100px 0;
-	text-align: center;
+	/* text-align: center; */
 
 	@media only screen and (max-width: 600px) {
 		.cards {
@@ -16,6 +16,7 @@
 		}
 	}
 	.cards {
+		text-align: left;
 		margin-top: 50px;
 		display: flex;
 		gap: 30px;
