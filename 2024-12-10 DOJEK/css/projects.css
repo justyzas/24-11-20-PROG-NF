@@ -1,0 +1,13 @@
+#projects {
+	.cards {
+		display: grid;
+		grid-template: 1fr 1fr / 1fr 1fr 1fr;
+		gap: 20px;
+		.card {
+			img {
+				width: 100%;
+				/* Grid wrap. */
+			}
+		}
+	}
+}

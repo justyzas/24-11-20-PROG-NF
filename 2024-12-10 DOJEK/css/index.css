@@ -8,3 +8,11 @@ body {
 	max-width: 1140px;
 	margin: 0 auto;
 }
+
+section > .container > h3 {
+	max-width: 50%;
+	margin: 0 auto;
+}
+section {
+	text-align: center;
+}
