@@ -1,0 +1,57 @@
+#testimonial {
+	background-color: #fff0c4;
+	.container > p {
+		width: 50%;
+		margin: 10px auto;
+		line-height: 1.5rem;
+	}
+
+	.cards {
+		padding: 0 30px;
+		text-align: left;
+		margin-top: 60px;
+		display: flex;
+		gap: 1.2rem;
+		.card {
+			display: none;
+			background-color: white;
+			padding: 1.5rem;
+			border-radius: 8px;
+			position: relative;
+			img.user-img {
+				border-radius: 100%;
+			}
+
+			img {
+				width: 60px;
+			}
+
+			.absolute-br {
+				position: absolute;
+				bottom: 0;
+				right: 0;
+			}
+
+			h6 {
+				margin: 0;
+			}
+
+			p {
+				margin: 0;
+			}
+		}
+		.card:nth-child(1) {
+			display: block;
+		}
+		@media only screen and (min-width: 600px) {
+			.card:nth-child(2) {
+				display: block;
+			}
+		}
+		@media only screen and (min-width: 1060px) {
+			.card:nth-child(3) {
+				display: block;
+			}
+		}
+	}
+}

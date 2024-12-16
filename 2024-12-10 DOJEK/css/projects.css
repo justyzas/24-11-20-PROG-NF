@@ -54,9 +54,29 @@
 		/* grid-template: 1fr 1fr / 1fr 1fr 1fr; */
 		gap: 20px;
 		.card {
+			border-radius: 8px;
+			color: #212529;
+			box-shadow: 0 0 8px #c7c9cb;
 			img {
 				width: 100%;
+				border-radius: 8px;
 				/* Grid wrap. */
+			}
+			h5 {
+				font-size: 18px;
+				font-family: "Cerebri-Bold", sans-serif;
+				letter-spacing: 1px;
+				line-height: 1.2;
+				margin: 0;
+			}
+			p {
+				margin: 0;
+				color: #212529bf;
+			}
+			.card-body {
+				padding: 1rem;
+				/* 1 REM - html elemento šrifto dydis */
+				/* 1 EM - vietinis šrifto dydis */
 			}
 		}
 	}

@@ -71,6 +71,10 @@ jų dydžiais, italicais ,boldais ir t.t. */
 	color: #536796;
 }
 
+.lh-lg {
+	line-height: 1.5;
+}
+
 a {
 	text-decoration: none;
 }
