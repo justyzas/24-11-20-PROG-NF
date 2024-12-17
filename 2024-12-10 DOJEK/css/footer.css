@@ -45,12 +45,43 @@ footer {
 					right: 20px;
 					top: 50%;
 					transform: translateY(-50%);
+
+					background-color: #1ce1ac;
+					color: white;
+					border: none;
+					border-radius: 4px;
+					padding: 0.75rem 1.5rem;
+					cursor: pointer;
+					transition: box-shadow 0.5s;
 					/* padding: 80px; */
+				}
+				button:hover {
+					box-shadow: 0 5px 10px #1ce1ac51;
 				}
 			}
 		}
 	}
-	#newsletter > div {
-		width: 50%;
+
+	@media only screen and (max-width: 800px) {
+		#newsletter {
+			flex-direction: column;
+			gap: 40px;
+			padding: 6rem;
+		}
+		#newsletter > div {
+			width: 100%;
+		}
+		.subscribe-form,
+		.subscribe-form > input {
+			width: 80%;
+		}
+	}
+	@media only screen and (min-width: 800px) {
+		#newsletter {
+			flex-direction: row;
+		}
+		#newsletter > div {
+			width: 50%;
+		}
 	}
 }
