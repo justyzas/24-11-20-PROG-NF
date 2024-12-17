@@ -1,3 +1,16 @@
 #stats {
 	background-color: #f8f9fa;
+
+	.container {
+		display: flex;
+		justify-content: space-between;
+		text-align: center;
+		h3 {
+			margin: 0;
+		}
+		p {
+			text-transform: uppercase;
+			letter-spacing: 2px;
+		}
+	}
 }
