@@ -1,0 +1,81 @@
+p {
+	margin: 0;
+	/* Spalvos pavadinimas */
+	/* color: red; */
+	/* HEX modelis - Šešioliktainiai sk kaip spalvos aprašymas */
+	/* color: #cf8a8a; */
+	/* rgb - Red, Green, Blue */
+	/* color: rgb(255, 0, 0); */
+	/* CMYK - Cyan, Magenta, Yellow, Black  */
+	color: cmyk(100%, 5%, 20%, 60%);
+}
+
+table,
+th,
+td {
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+
+table {
+	width: 600px;
+}
+
+th {
+	text-align: left;
+}
+td {
+	text-align: right;
+}
+
+th.number-style {
+	width: 40px;
+}
+
+.big-box {
+	margin-top: 60px;
+	min-height: 700px;
+	background: url("../wavy-elegant-lines-yellow-background_78370-3231.avif");
+	/* no-repeat - nekartoti,
+	 repeat-x, kartotų foną horizontaliai, 
+	 repeat-y - kartotų foną vertikaliai, 
+	 repeat - kartoja foną į abi ašis kol padengia visą konteinerį */
+	background-repeat: no-repeat;
+	/* Vertikali fono pozicija | Horizontali fono pozicija */
+	background-position: top center;
+	/* auto - originalus, contain - responsyvus, cover - padengia pilnai */
+	background-size: cover;
+	backdrop-filter: ;
+
+	padding: 40px;
+	border-radius: 8px;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	/* Horizontaliai lygiuoti */
+	justify-content: space-around;
+	/* Vertikaliai lygiuoti */
+	align-items: center;
+}
+
+.small-box {
+	height: 50px;
+	min-width: 50px;
+	max-width: 100px;
+
+	/* background-color: rgb(180, 136, 222); */
+	/* backdrop-filter: sepia(20%); */
+}
+
+.flex-grow-1 {
+	flex-grow: 1;
+}
+.flex-grow-2 {
+	flex-grow: 2;
+}
+.flex-shrink-1 {
+	flex-shrink: 1;
+}
+.flex-shrink-2 {
+	flex-shrink: 2;
+}
