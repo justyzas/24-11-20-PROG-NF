@@ -1,0 +1,10 @@
+.container {
+	max-width: 1000px;
+	margin: 0 auto;
+}
+
+.dice-data {
+	min-width: 300px;
+	min-height: 300px;
+	border: 1px solid black;
+}
