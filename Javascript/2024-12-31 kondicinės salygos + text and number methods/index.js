@@ -1,5 +1,6 @@
 const pirmoKauliukoElementas = document.querySelector("#first-dice-number");
 const antroKauliukoElementas = document.querySelector("#second-dice-number");
+
 const pirmoKauliukoLyginisElementas = document.querySelector(
 	"#first-dice .is-even"
 );
@@ -19,24 +20,7 @@ function rand(min, max) {
 
 let iskritesAkiuSkaicius = rand(1, 6); //1-6
 // "Iškrito kauliukas - 5"
-
-console.log("PIRMO KAULIUKO DUOMENYS");
-console.log(`Iškrito kauliukas - ${iskritesAkiuSkaicius}`);
-
-if (iskritesAkiuSkaicius == 6) {
-	console.log("Va bank!");
-} else if (iskritesAkiuSkaicius == 1) {
-	console.log("Whoops!");
-}
-
-let pirmasLyginisArNelyginis;
-if (iskritesAkiuSkaicius % 2 == 0) {
-	pirmasLyginisArNelyginis = "Lyginis";
-} else {
-	pirmasLyginisArNelyginis = "Nelyginis";
-}
-console.log(pirmasLyginisArNelyginis);
-pirmoKauliukoLyginisElementas.innerHTML = pirmasLyginisArNelyginis;
+mestiKauliuka1();
 
 console.log("ANTRO KAULIUKO DUOMENYS");
 
@@ -81,8 +65,31 @@ pirmoKauliukoTrukstamasSkElementas.innerHTML = 6 - iskritesAkiuSkaicius;
 antroKauliukoTrukstamasSkElementas.innerHTML =
 	6 - iskritesAkiuSkaiciusAntrasBandymas;
 
-function parasytiLabasTrisKartus() {
-	console.log("Labas");
-	console.log("Labas");
-	console.log("Labas");
+function mestiKauliuka1() {
+	//  Duomenų generavimas, papildomi apskaičiavimai
+	iskritesAkiuSkaicius = rand(1, 6);
+	console.log("PIRMO KAULIUKO DUOMENYS");
+	console.log(`Iškrito kauliukas - ${iskritesAkiuSkaicius}`);
+
+	if (iskritesAkiuSkaicius == 6) {
+		console.log("Va bank!");
+	} else if (iskritesAkiuSkaicius == 1) {
+		console.log("Whoops!");
+	}
+
+	if (iskritesAkiuSkaicius % 2 == 0) {
+		pirmasLyginisArNelyginis = "Lyginis";
+	} else {
+		pirmasLyginisArNelyginis = "Nelyginis";
+	}
+
+	// Duomenų ekrane atnaujinimas
+	pirmoKauliukoElementas.innerHTML = iskritesAkiuSkaicius;
+	pirmoKauliukoLyginisElementas.innerHTML = pirmasLyginisArNelyginis;
+	pirmoKauliukoTrukstamasSkElementas.innerHTML = 6 - iskritesAkiuSkaicius;
 }
+// function mestiKauliukus()
+// {
+// 	mestiKauliuka1();
+// 	mestiKauliuka2();
+// }
