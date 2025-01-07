@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<title>Manipuliacijos formomis ir duomenimis</title>
+	</head>
+	<body>
+		<!-- 
+            Paskaitos tikslai:
+            1. Įvesties laukelių reikšmių pasiekimas
+            2. Praktikuotis manipuliacijas duomenimis
+            3. Praktikuotis kondicines sąlygas (if)
+            4. String (teksto) bei number (skaičių) metodų apžvalga
+            5. Pasikartojimas funkcijų veikimo.
+        -->
+		<input
+			type="text"
+			id="vardo-ivestis"
+			placeholder="Įveskite savo vardą"
+		/>
+		<input
+			type="number"
+			id="amziaus-ivestis"
+			placeholder="Įveskite savo amžių"
+		/>
+		<div>
+			<label for="terms">Sutinku su Taisyklėmis ir salygomis</label>
+			<input
+				type="checkbox"
+				id="terms"
+			/>
+		</div>
+		<button onclick="getFormData()">Gauti reikšmę į JS</button>
+
+		<script src="pavyzdziai.js"></script>
+	</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<title>Document</title>
+	</head>
+	<body>
+		<!-- 
+            BILIETU PIRKIMAS   10EUR
+            Jei amžius yra mažiau nei 12    - 50%
+            Jei amžius yra daugiau nei 65   - 80%
+            Jei studentas                   - 40%
+            Jei Karys                       - 50%
+            Jei Studentas ir karys          - 70%
+         -->
+		<h2>Bilietų kainos skaičiavimo sistema</h2>
+
+		<div>
+			<input
+				type="number"
+				max="120"
+				min="0"
+				id="age-input"
+				placeholder="Įveskite savo amžių"
+			/>
+		</div>
+		<div>
+			<div>
+				<label for="is-student">Ar jūs esate studentas?</label>
+				<input
+					type="checkbox"
+					id="is-student"
+				/>
+			</div>
+			<div>
+				<label for="is-military">Ar jūs esate karys?</label>
+				<input
+					type="checkbox"
+					id="is-military"
+				/>
+			</div>
+		</div>
+		<button onclick="showTicketPrice()">Rodyti Bilieto Kainą</button>
+		<script src="praktika.js"></script>
+	</body>
+</html>
