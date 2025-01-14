@@ -107,7 +107,7 @@ function isvesti5ConsoleLogus(
 const x = 4;
 isvesti5ConsoleLogus("Paskutinis", x, "a", "Nedefaultas");
 
-const balansoElementas = document.querySelector("#balansas");
+// const balansoElementas = document.querySelector("#balansas");
 
 let dabartinisBalansas = 0;
 

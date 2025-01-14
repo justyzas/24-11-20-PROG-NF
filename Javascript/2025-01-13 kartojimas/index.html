@@ -79,16 +79,21 @@
 		<main>
 			<div class="container">
 				<button onclick="gautiAlga()">Gauti Algą</button>
-				<button onclick="pirktiPreke('Batonas')">Pirkti batono $87.00</button>
-				<button onclick="pirktiPreke('Odekolonas')">
+				<button onclick="isleistiPinigus('Batonas', 87)">
+					Pirkti batono $87.00
+				</button>
+				<button onclick="isleistiPinigus('Odekolonas', 47.25)">
 					Pirkti odekolono $47.25
 				</button>
-				<button onclick="pirktiPreke('Dantų šepetėlis')">
+				<button onclick="isleistiPinigus('Dantų šepetėlis', 24.25)">
 					Pirkti dantų šepetėlį $24.25
 				</button>
-				<button>Pirkti pirties vantą $28.25</button>
+				<button onclick="isleistiPinigus('Pirties vanta', 28.25)">
+					Pirkti pirties vantą $28.25
+				</button>
 			</div>
 		</main>
-		<script src="index.js"></script>
+		<!-- <script src="index.js"></script> -->
+		<script src="bank.js"></script>
 	</body>
 </html>
