@@ -143,12 +143,42 @@ function throwCoinTimes(n) {
 }
 
 throwCoinTimes(56);
-// 8. Sukurkite funkciją sumAll(masyvas), kuri susumuoja visus masyvo elementus
-//  bei gražina šią sumą kaip rezultatą;
 
-// 9. Sukurkite funkciją average(arr), kuri atranda visų masyve pateiktų skaičių vidurkį;
+// 8. Sukurkite funkciją sumAll(masyvas),
+// kuri susumuoja visus masyvo elementus
+// bei gražina šią sumą kaip rezultatą;
+// [1,2,3,4] = 10
+
+function sumAll(masyvas) {
+	let suma = 0;
+	for (let i = 0; i < masyvas.length; i++) suma += masyvas[i];
+	return suma;
+}
+
+console.log(sumAll(atsitiktiniai1));
+
+// 9. Sukurkite funkciją average(arr),
+//  kuri atranda visų masyve pateiktų skaičių vidurkį;
+
+function average(arr) {
+	let suma = sumAll(arr);
+	return suma / arr.length;
+}
+console.log(average(atsitiktiniai1));
 
 // 10. Sukurkite funkciją findAllUniqueNumbers(masyvas),
 //  kuri atranda masyve esančius unikalius skaičius.
 //  gražina juos masyvo pavidalu:
-// pvz: findAllUniqueNumbers([1,1,2,8,8,1, 4, 6]) // [1,2,8,4,6];
+// pvz: findAllUniqueNumbers([1, 1, 2, 8, 8, 1, 4, 6]) // [1, 2, 8, 4, 6];
+function findAllUniqueNumbers(masyvas) {
+	const unikalusSkaiciai = [];
+
+	for (let i = 0; i < masyvas.length; i++) {
+		if (!unikalusSkaiciai.includes(masyvas[i])) {
+			unikalusSkaiciai.push(masyvas[i]);
+		}
+	}
+	return unikalusSkaiciai;
+}
+
+console.log(findAllUniqueNumbers([1, 1, 2, 8, 8, 1, 1, 1, 1, 1, 1, 4, 6]));
