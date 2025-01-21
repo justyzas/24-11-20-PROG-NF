@@ -1,0 +1,12 @@
+*{
+	font-family: "Roboto", serif;
+	font-optical-sizing: auto;
+	font-style: normal;
+}
+
+.heading2 {
+	font-size: 1.2rem;
+	margin: 0.3rem 0;
+	border-bottom: 6px solid rgb(74, 74, 208);
+}
+
