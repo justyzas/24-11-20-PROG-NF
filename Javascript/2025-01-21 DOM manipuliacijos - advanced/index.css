@@ -1,0 +1,18 @@
+.card {
+    text-align: center;
+    padding: 1rem;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.295);
+    transition: all; /* kai judiname, keičiame dydį, spalvą, apsivertimą */
+    transition-duration: 1000ms;
+    /* opacity: 1; */
+    height: 150px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+.hidden{
+    /* opacity: 0; */
+    /* display: none; */
+    height: 0px;
+    padding: 0rem;
+    /* visibility: hidden; */
+}

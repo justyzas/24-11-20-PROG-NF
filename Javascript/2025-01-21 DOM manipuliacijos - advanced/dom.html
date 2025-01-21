@@ -18,23 +18,24 @@
 	<body>
 		<h3>DOM Manipuliacijos</h3>
 
-		<h5  id="first-heading">Elemento klasės pridėjimas</h5>
-		<button>Pridėti klasę</button>
-
-		<h5 class="heading2" id="second-heading">Elemento klasės nuėmimas</h5>
-		<button>Nuimti klasę</button>
+		
+		<h5 id="first-heading">Elemento klasės pridėjimas</h5>
+		<button onclick="pridetiKlase()">Pridėti klasę</button>
+	
+		<h5 class="heading2 border" id="second-heading">Elemento klasės nuėmimas</h5>
+		<button onclick="nuimtiKlase()">Nuimti klasę</button>
 
 		<h5 class="heading2"  id="third-heading">Elemento klasės nuėmimas/pridėjimas</h5>
-		<button>Nuimti/pridėti klasę</button>
+		<button onclick="nuimtiArbaPridetiKlase()">Nuimti/pridėti klasę</button>
 
 		<h5 class="heading2"  id="fourth-heading">Elemento sunaikinimas</h5>
-		<button>Sunaikinti elementą</button>
+		<button onclick="pasalintiElementa()">Sunaikinti elementą</button>
 
         <h5 class="heading2" id="fifth-heading">Elemento sukūrimas už elemento</h5>
-        <button>Sukurti elementą už antraštės</button>
+        <button onclick="kurtiElementaUzElemento()">Sukurti elementą už antraštės</button>
 
-        <h5 class="heading2" id="fifth-heading">Elemento sukūrimas už elemento</h5>
-        <button>Sukurti elementą prieš antraštę</button>
+        <h5 class="heading2" id="sixth-heading">Elemento sukūrimas prieš elementą</h5>
+        <button onclick="kurtiElementaPriesElementa()">Sukurti elementą prieš antraštę</button>
 
         
 		<script src="dom.js"></script>
