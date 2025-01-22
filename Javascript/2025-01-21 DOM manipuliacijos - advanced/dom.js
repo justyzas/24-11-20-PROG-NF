@@ -24,7 +24,8 @@ function nuimtiKlase()
     // 1. pasirinkti elementą (id="second-heading")
     const h5 = document.querySelector("#second-heading");
     // 2. nuimti klasę "heading2"
-    // h5.className = "";
+    h5.className = "";
+    // console.log(h5.className);
     h5.classList.remove("heading2");
 }
 
@@ -56,7 +57,7 @@ function kurtiElementaUzElemento()
 
     //Elemento sukūrimas ir jo turinio priskyrimas
     const p = document.createElement("p"); // p elemento sukūrimas
-    p.innerText = "Čia yra nauja pastraipa sukurta JS'e";
+    p.innerText = "<b>Čia yra</b> nauja pastraipa sukurta JS'e";
     p.classList.add("klase1");
     p.classList.add("klase2");
     p.id = "mano-pastraipa"
@@ -80,8 +81,8 @@ function kurtiElementaPriesElementa()
     p.innerText = "Čia yra nauja pastraipa sukurta JS'e";
     p.classList.add("klase1");
     p.classList.add("klase2");
-    p.id ="mano-pastraipa";
-    p.title= "Čia yra pastraipa apie mano tekstą";
+    p.id = "mano-pastraipa";
+    p.title = "Čia yra pastraipa apie mano tekstą";
 
     h5.insertAdjacentElement("beforebegin", p);
 }

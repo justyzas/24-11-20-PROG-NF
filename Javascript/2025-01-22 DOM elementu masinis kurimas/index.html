@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM elementų masinis kūrimas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Smooch+Sans:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <!-- Pavadinimas, aprašymas, nuotrauka, kaina, nuolaida -->
+
+    <h3>Prekių sąrašas</h3>
+    <hr>
+
+    <section id="products">
+        <div class="product">
+            <div class="img-container">
+                <img src="https://kimesranch.com/cdn/shop/files/Betty-Black-Denim-Womens-1.jpg?v=1732121109" alt="">
+            </div>
+            <div class="details">
+                <h3>Lorem, ipsum dolor.</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium molestiae eligendi enim iste odit similique vitae ex molestias, facilis, perferendis temporibus eius iusto! Repellat fugit sit dolorem inventore iste hic voluptatum rem, ullam nemo dolor dolorum, velit atque, quis quas!</p>
+            </div>
+            <div class="actions">
+                <p class="price disabled">20.00€</p>
+                <p class="discount">16.00€</p>
+                <button class="btn buy-btn w-2/3">Pirkti</button>
+                <button class="btn w-2/3 add-to-cart">Pridėti į krepšelį</button>
+            </div>
+        </div>
+    </section>
+
+    <script src="index.js"></script>
+</body>
+</html>
