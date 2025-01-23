@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <!-- <link rel="stylesheet" href="masinis-sarasas.css"> -->
+        <link rel="stylesheet" href="index.css">
+    </head>
+    <body>
+
+        <!-- Filmo pavadinimas, Žanras, Išleidimo metai -->
+        <h2>Mėgstamų filmų saugykla</h2>
+        <hr>
+
+        <fieldset>
+            <legend>Filmo įvedimo forma</legend>
+
+            <div>
+                <label for="filmo-pavadinimas">Filmas</label>
+                <input type="text" id="filmo-pavadinimas">
+            </div>
+            <div>
+                <label for="zanras">Žanras</label>
+                <select name="zanras" id="zanras">
+                    <option>Komedija</option>
+                    <option>Animacija</option>
+                </select>
+            </div>
+            <div>
+                <label for="isleidimo-metai">Išleidimo metai</label>
+                <input type="month" min="1920-01" max="2025-01" id="isleidimo-metai" />
+            </div>
+            <button onclick="pridetiFilma()">Išsaugoti</button>
+        </fieldset>
+
+        <table id="filmai">
+            <thead>
+                <tr>
+                    <th>Filmo pavadinimas</th>
+                    <th>Žanras</th>
+                    <th>Išleidimo metai</th>
+                </tr>
+            </thead>
+            <tbody>
+             
+            </tbody>
+        </table>
+        <!-- <script src="masinis-sarasas.js"></script> -->
+        <script src="index.js"></script>
+    </body>
+</html>
