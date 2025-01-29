@@ -10,6 +10,7 @@ const masinos = [
 	"Volvo",
 	"Porsche",
 	"Lexus",
+	"LUPRA",
 ];
 
 const countries = [
@@ -39,5 +40,34 @@ const colors = [
 ];
 
 // 1. Reikia sukurti masyvą, kur visos mašinos pasibaigia raide A. (5 min)
-// 13:47
+// 13:48
 const paieska = "A";
+// .includes()
+// .endsWith() - true/false
+
+const atfiltruotosMasinos = masinos.filter((auto) =>
+	auto.toLowerCase().endsWith(paieska.toLowerCase())
+);
+console.log(atfiltruotosMasinos);
+
+// 2. reikia sukurti masyvą mašinų,
+// kur visi pavadinimai būtų  mažosiomis raidėmis => .map() (5min.) (14:00)
+
+const masinosDidziosiomis = masinos.map((v) => v.toUpperCase());
+console.log(masinosDidziosiomis);
+
+// 3. Jei Šalis prasideda su L arba su U reikšme,
+// reikia šias reikšmes išskirti į naują masyvą. (6 min) (14:10)
+
+const atfiltruotosSalys = countries
+	.filter(
+		(salis) => salis.country.startsWith("L") || salis.country.startsWith("U")
+	)
+	.map((salis) => {
+		return {
+			saliesKodas: salis.countryCode.toUpperCase(),
+			pavadinimas: salis.country,
+		};
+	});
+
+console.log(atfiltruotosSalys);
