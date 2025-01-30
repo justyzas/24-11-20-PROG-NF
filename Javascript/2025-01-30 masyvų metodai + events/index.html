@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<title>Document</title>
+	</head>
+	<body>
+		<h3>Užduočių pridėjimas</h3>
+		<hr />
+		<input
+			type="text"
+			id="task-add-field"
+			placeholder="pvz. Užpildyti dokumentus"
+		/>
+		<button id="task-add-button">Pridėti</button>
+
+		<h3>Aktyvios užduotys</h3>
+		<hr />
+		<ul id="tasks-active">
+			<li>
+				<span>Užduoties pavadinimas</span>
+				<button>Ištrinti</button>
+				<button>Užduotis atlikta</button>
+			</li>
+		</ul>
+		<h3>Pabaigtos Užduotys</h3>
+		<hr />
+		<ul id="tasks-finished">
+			<li>
+				<span>Užduoties pavadinimas</span>
+				<button>Ištrinti</button>
+			</li>
+		</ul>
+		<script src="crud.js"></script>
+	</body>
+</html>
