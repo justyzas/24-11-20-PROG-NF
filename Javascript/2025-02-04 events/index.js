@@ -40,9 +40,6 @@ document.querySelector("input").addEventListener("change", (event) => {
 // - kai yra paspaudžiama w raidė - ji paverstų body fono spalvą į baltą, o tekstą į juodą
 // - kai yra paspaudžiama b raidė - ji paverstų body fono spalvą į juodą, o tekstą į baltą
 
-// document.body - elementas
-// keydown
-
 document.body.addEventListener("keydown", (event) => {
 	console.log(event);
 
