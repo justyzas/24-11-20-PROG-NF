@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<title>Dogs gallery</title>
+		<style>
+			#dog-image {
+				max-width: 600px;
+				max-height: 500px;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 
+        Sukurkite programą, kuri kreipiasi į dogs API serverį. Nuoroda į API dokumentaciją: https://dog.ceo/dog-api/documentation/ 
+            1. Gauti visas veisles pagal dokumentacijoje nurodytą nuorodą.
+            2. Sutvarkyti iš serverio gautą objektą taip, kad gaunamos veislės būtų viename sąraše.
+            3. Visas veisles atvaizduoti <select></select> HTML elemente, kaip pasirinkimus
+            4. Pasirinkus naują reikšmę, automatiškai turi būti kreipiamasi į serverį, dinamiškai generuojant kreipimosi adresą taip, kad būtų gaunama nuotrauka pagal šuns veislę.
+            5. Po select elementu atvaizduoti šuns nuotrauką ir parašyti jo veislę;
+        -->
+		<select
+			name="veisles-pasirinkimas"
+			id="veisles-pasirinkimas"
+		>
+			<option></option>
+		</select>
+
+		<div>
+			<img
+				src=""
+				alt="šuns nuotrauka"
+				id="dog-image"
+			/>
+		</div>
+
+		<h2 id="veisle"></h2>
+
+		<script src="./index.js"></script>
+	</body>
+</html>
