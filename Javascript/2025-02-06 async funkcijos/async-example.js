@@ -45,7 +45,8 @@ async function main() {
 
 	const uzklausos = [asinchronineFunkcija1(), asinchronineFunkcija2()];
 	const [atsakymas1, atsakymas2] = await Promise.all(uzklausos);
-
+	// const atsakymas1 = await asinchronineFunkcija1(); //1s
+	// const atsakymas2 = await asinchronineFunkcija2(); //2s
 	const endDate = Date.now();
 	console.log("Trukmė: ", endDate - startDate + "ms");
 
@@ -59,6 +60,7 @@ console.log("2");
 console.log("3");
 console.log("4");
 console.log("5");
+
 main();
 console.log("6");
 console.log("7");

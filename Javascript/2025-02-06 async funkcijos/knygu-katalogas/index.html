@@ -33,7 +33,7 @@
 	</head>
 	<body>
 		<main class="container">
-			<div class="card p-3 m-3 border-0 shadow">
+			<form class="card p-3 m-3 border-0 shadow">
 				<div class="mb-3">
 					<label
 						for="search"
@@ -45,153 +45,71 @@
 						class="form-control"
 						id="search"
 						placeholder="pvz. Tarp pilkų debesų"
+						name="search"
 					/>
 				</div>
 				<select
 					class="form-select"
 					aria-label="Default select example"
+					id="knygos-zanro-pasirinkimas"
+					name="category"
 				>
 					<option selected>Visi žanrai</option>
 					<option>Dramos</option>
 					<option>Grožinė literatūra</option>
 					<option>Biografija</option>
 				</select>
-				<button class="btn btn-outline-primary mt-4">Ieškoti</button>
-			</div>
+				<button
+					class="btn btn-outline-primary mt-4"
+					type="submit"
+				>
+					Ieškoti
+				</button>
+				<button
+					class="btn btn-outline-danger mt-4"
+					type="reset"
+				>
+					Atstatyti
+				</button>
+			</form>
 			<div class="card p-3 m-3 border-0 shadow">
 				<h3>Knygos</h3>
 				<div
 					class="accordion"
-					id="accordion-parent"
+					id="books-accordion"
 				>
 					<div class="accordion-item">
 						<h2 class="accordion-header">
 							<button
-								class="accordion-button"
+								class="accordion-button collapsed"
 								type="button"
 								data-bs-toggle="collapse"
-								data-bs-target="#accordion-1"
+								data-bs-target="#collapse-1"
 								aria-expanded="true"
-								aria-controls="collapseOne"
+								aria-controls="collapse-1"
 							>
-								Accordion Item #1
+								Knygos pavadinimas
 							</button>
 						</h2>
 						<div
-							id="accordion-1"
-							data-bs-parent="#accordion-parent"
+							id="collapse-1"
+							class="accordion-collapse collapse"
+							data-bs-parent="#books-accordion"
 						>
-							Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor
-							natus explicabo possimus, aut nihil laudantium tempora in. Dolores
-							asperiores, nisi quas nobis sequi quo natus modi qui non, alias
-							ducimus ullam aspernatur perspiciatis! Saepe enim perspiciatis
-							quisquam placeat eos modi. Qui eveniet veritatis ab excepturi
-							ullam in illo hic, libero ducimus eaque deleniti expedita alias
-							veniam, repellat nam facilis reiciendis at quidem nobis voluptates
-							cupiditate! Odio ab enim excepturi quam id dolorem reiciendis
-							distinctio laudantium, saepe ut fugiat ratione velit tempore fuga
-							odit. Rem similique veritatis dolor laboriosam illum vero nesciunt
-							vitae voluptate minima, exercitationem mollitia tenetur minus? At,
-							alias.
-						</div>
-					</div>
-				</div>
-				<div class="accordion">
-					<div class="accordion-item">
-						<h2 class="accordion-header">
-							<button
-								class="accordion-button"
-								type="button"
-								data-bs-toggle="collapse"
-								data-bs-target="#accordion-2"
-								aria-expanded="true"
-								aria-controls="collapseOne"
-							>
-								Accordion Item #2
-							</button>
-						</h2>
-						<div
-							id="accordion-2"
-							data-bs-parent="#accordion-parent"
-						>
-							Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor
-							natus explicabo possimus, aut nihil laudantium tempora in. Dolores
-							asperiores, nisi quas nobis sequi quo natus modi qui non, alias
-							ducimus ullam aspernatur perspiciatis! Saepe enim perspiciatis
-							quisquam placeat eos modi. Qui eveniet veritatis ab excepturi
-							ullam in illo hic, libero ducimus eaque deleniti expedita alias
-							veniam, repellat nam facilis reiciendis at quidem nobis voluptates
-							cupiditate! Odio ab enim excepturi quam id dolorem reiciendis
-							distinctio laudantium, saepe ut fugiat ratione velit tempore fuga
-							odit. Rem similique veritatis dolor laboriosam illum vero nesciunt
-							vitae voluptate minima, exercitationem mollitia tenetur minus? At,
-							alias.
-						</div>
-					</div>
-				</div>
-				<div class="accordion">
-					<div class="accordion-item">
-						<h2 class="accordion-header">
-							<button
-								class="accordion-button"
-								type="button"
-								data-bs-toggle="collapse"
-								data-bs-target="#accordion-3"
-								aria-expanded="true"
-								aria-controls="collapseOne"
-							>
-								Accordion Item #3
-							</button>
-						</h2>
-						<div
-							id="accordion-3"
-							data-bs-parent="#accordion-parent"
-						>
-							Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor
-							natus explicabo possimus, aut nihil laudantium tempora in. Dolores
-							asperiores, nisi quas nobis sequi quo natus modi qui non, alias
-							ducimus ullam aspernatur perspiciatis! Saepe enim perspiciatis
-							quisquam placeat eos modi. Qui eveniet veritatis ab excepturi
-							ullam in illo hic, libero ducimus eaque deleniti expedita alias
-							veniam, repellat nam facilis reiciendis at quidem nobis voluptates
-							cupiditate! Odio ab enim excepturi quam id dolorem reiciendis
-							distinctio laudantium, saepe ut fugiat ratione velit tempore fuga
-							odit. Rem similique veritatis dolor laboriosam illum vero nesciunt
-							vitae voluptate minima, exercitationem mollitia tenetur minus? At,
-							alias.
-						</div>
-					</div>
-				</div>
-				<div class="accordion">
-					<div class="accordion-item">
-						<h2 class="accordion-header">
-							<button
-								class="accordion-button"
-								type="button"
-								data-bs-toggle="collapse"
-								data-bs-target="#accordion-4"
-								aria-expanded="true"
-								aria-controls="collapseOne"
-							>
-								Accordion Item #4
-							</button>
-						</h2>
-						<div
-							id="accordion-4"
-							data-bs-parent="#accordion-parent"
-						>
-							Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor
-							natus explicabo possimus, aut nihil laudantium tempora in. Dolores
-							asperiores, nisi quas nobis sequi quo natus modi qui non, alias
-							ducimus ullam aspernatur perspiciatis! Saepe enim perspiciatis
-							quisquam placeat eos modi. Qui eveniet veritatis ab excepturi
-							ullam in illo hic, libero ducimus eaque deleniti expedita alias
-							veniam, repellat nam facilis reiciendis at quidem nobis voluptates
-							cupiditate! Odio ab enim excepturi quam id dolorem reiciendis
-							distinctio laudantium, saepe ut fugiat ratione velit tempore fuga
-							odit. Rem similique veritatis dolor laboriosam illum vero nesciunt
-							vitae voluptate minima, exercitationem mollitia tenetur minus? At,
-							alias.
+							<div class="accordion-body row row-cols-12">
+								<img
+									src="https://in3.dev/knygos/imgs/1508769498_namu-frontas_1508760277.jpg"
+									alt="knygos-nuotrauka"
+									class="col-12 col-sm-3 col-lg-2"
+									style="max-width: 300px"
+								/>
+								<div class="col-12 col-sm-9 col-lg-10">
+									<p><b>Autorius: </b> <i>Kristin Hannah</i></p>
+									<p><b>Kaina: </b> <i>11.29€</i></p>
+									<p><b>Išleidimo data: </b> <i>2023-08-19</i></p>
+									<p><b>Žanras: </b> <i>Biografija</i></p>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
