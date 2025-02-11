@@ -129,10 +129,12 @@ async function main() {
 		const name = formData.get("search");
 		const category = formData.get("category");
 
-		console.log(name);
-		console.log(category);
-
-		const filteredBooks = []; //?
+		//filtracija ir kategorijai ir pavadinimui
+		const filteredBooks = books.filter(
+			(book) =>
+				book.title.toLowerCase().includes(name.toLowerCase()) &&
+				(category == "Visi žanrai" || book.type == category)
+		);
 		showBooks(filteredBooks);
 	});
 }
