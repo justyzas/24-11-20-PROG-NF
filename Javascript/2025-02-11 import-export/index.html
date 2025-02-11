@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<title>Document</title>
+		<style>
+			table,
+			th,
+			td {
+				border: 1px solid black;
+				border-collapse: collapse;
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<h3 id="title"><span id="city">{Miesto}</span> Temperatūrų analizė</h3>
+		<!--  -->
+		<p><b>Pirma data:</b> <span id="start-date">{data}</span></p>
+		<p><b>Paskutinė data:</b> <span id="end-date">{data}</span></p>
+		<p><b>Vidutinės temperatūros:</b></p>
+		<table>
+			<thead>
+				<tr>
+					<th>Data</th>
+					<th>Minimali temperatūra</th>
+					<th>Maksimali temperatūra</th>
+					<th>Vidutinė temperatūra</th>
+				</tr>
+			</thead>
+			<tbody id="average-temperatures"></tbody>
+		</table>
+		<p>
+			<b>Šilčiausia (pagal vid. temp.) diena:</b>
+			<span id="max-avg-day">{data} - Vid. temp: {temp}</span>
+		</p>
+		<p>
+			<b>Šalčiausia (pagal vid. temp.) diena:</b>
+			<span id="min-avg-day">{data} - Vid. temp: {temp}</span>
+		</p>
+
+		<script src="index.js"></script>
+	</body>
+</html>
