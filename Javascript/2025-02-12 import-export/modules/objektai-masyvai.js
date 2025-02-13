@@ -1,5 +1,5 @@
 const response = await fetch("https://randomuser.me/api/?results=10");
-//{ info: {}, data: []}
+//{ info: {}, results: []}
 const { results: zmoniuMasyvas } = await response.json();
 
 // ----------------DARBO ZONA--------------------
@@ -28,18 +28,18 @@ const atfiltruotaZmoniuInformacija = zmoniuMasyvas.map((zmogus) => {
 console.log(atfiltruotaZmoniuInformacija);
 
 // ------------------TEORIJA-----------------
-// // Objektų destruktūravimas (galimybė iš objekto laukų sukurti kintamuosius)
-// const { results: rezultatai, info } = data;
+// Objektų destruktūravimas (galimybė iš objekto laukų sukurti kintamuosius)
+const { results: rezultatai, info } = data;
 
-// console.log(rezultatai); //[]
-// console.log(info); //{}
-// // const zmoniuMasyvas = data.results;
+console.log(rezultatai); //[]
+console.log(info); //{}
+// const zmoniuMasyvas = data.results;
 
-// // Masyvų destruktūravimas
-// const masyvas = [1, 2, 3, 4, 5];
+// Masyvų destruktūravimas
+const masyvas = [1, 2, 3, 4, 5];
 
-// // const pirmasElementas = masyvas[0]; //1
-// // const antrasElementas = masyvas[1]; //2
+// const pirmasElementas = masyvas[0]; //1
+// const antrasElementas = masyvas[1]; //2
 
-// const [pirmasElementas, , , ketvirtasElementas] = masyvas;
-// console.log(pirmasElementas, ketvirtasElementas);
+const [pirmasElementas, , , ketvirtasElementas] = masyvas;
+console.log(pirmasElementas, ketvirtasElementas);

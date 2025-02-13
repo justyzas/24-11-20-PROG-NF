@@ -17,7 +17,7 @@ const masyvas = [1, 2, 3, 4, 5];
 
 // import * as pavadinimas importuoja viską iš duoto modulio. Vėliau importuojamos reikšmės yra pasiekiamos per
 //pavadinimas.funkcija()
-import instrukcijos, * as math from "./modules/math.js";
+// import instrukcijos, * as math from "./modules/math.js";
 
 // console.log(math);
 // ---2 variantai, kaip panaudoti/gauti default export'ą-----------
