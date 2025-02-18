@@ -65,6 +65,7 @@ class Circle {
 // apskritimas1.radius = 1000;
 // console.log(apskritimas1.radius);
 // console.log(apskritimas1.area);
+
 class TransactionHistory {
 	#history;
 
