@@ -51,5 +51,3 @@ fs.rmSync("failas.txt", { recursive: true, force: true });
 
 // fs.renameSync(keliasFailo, naujasKeliasFailo) - pervadina failą
 fs.renameSync("katalogasA/failas.txt", "katalogasA/kitoksFailoPavadinimas.txt");
-
-// Asinchroninis būdas kreiptis į failų sistemą (neblokuojantis veiksmų seką elgesys)

@@ -1,3 +1,4 @@
+// Asinchroninis būdas kreiptis į failų sistemą (neblokuojantis veiksmų seką elgesys)
 import fs from "node:fs/promises";
 
 try {
