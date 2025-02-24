@@ -1,0 +1,27 @@
+[
+	{
+		"title": "HTML Elementai",
+		"description": "Išsamus HTML elementų sąrašas ir pavyzdžiai.",
+		"url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element"
+	},
+	{
+		"title": "CSS Selektoriai",
+		"description": "CSS selektorių sąrašas su pavyzdžiais, kaip taikyti stilius skirtingiems elementams.",
+		"url": "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors"
+	},
+	{
+		"title": "JavaScript Pagrindai",
+		"description": "JavaScript sintaksės ir pagrindinių funkcijų aprašymas su pavyzdžiais.",
+		"url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide"
+	},
+	{
+		"title": "HTML Formos",
+		"description": "Kaip kurti formas HTML ir valdyti jų elgseną su JavaScript.",
+		"url": "https://developer.mozilla.org/en-US/docs/Learn/Forms"
+	},
+	{
+		"title": "DOM Manipuliacija",
+		"description": "Kaip keisti HTML elementus naudojant JavaScript Document Object Model (DOM).",
+		"url": "https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction"
+	}
+]
