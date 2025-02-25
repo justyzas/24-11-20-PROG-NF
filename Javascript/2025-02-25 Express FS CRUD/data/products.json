@@ -1,0 +1,11 @@
+{
+	"currentId": 2,
+	"allProducts": [
+		{
+			"title": "Šlepetės 'Golden'",
+			"price": 29.99,
+			"description": "lorem ipsum dolor sit amet",
+			"id": 1
+		}
+	]
+}
