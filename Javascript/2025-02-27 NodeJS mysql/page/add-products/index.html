@@ -48,7 +48,10 @@
 			</nav>
 			<hr />
 
-			<form class="bg-light p-4">
+			<form
+				class="bg-light p-4"
+				id="product-creation-form"
+			>
 				<div class="mb-3">
 					<label
 						for="product-name"
@@ -59,6 +62,7 @@
 						type="text"
 						class="form-control"
 						id="product-name"
+						name="product-name"
 						placeholder="Produkto pavadinimas"
 					/>
 				</div>
@@ -72,9 +76,9 @@
 						type="number"
 						class="form-control"
 						id="product-price"
+						name="product-price"
 						placeholder="Pvz: 1.48"
-						min="0.10"
-						max="100000"
+						min="0"
 					/>
 				</div>
 				<div class="mb-3">
@@ -86,6 +90,7 @@
 					<textarea
 						class="form-control"
 						id="product-description"
+						name="product-description"
 						rows="3"
 						placeholder="Produkto aprašymas"
 					></textarea>
@@ -104,7 +109,10 @@
 				</button>
 			</form>
 		</div>
-
+		<script
+			type="module"
+			src="./requests.js"
+		></script>
 		<script
 			src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
 			integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
