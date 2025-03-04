@@ -37,6 +37,7 @@ app.post("/products", async (req, res) => {
 	const productSchema = z.object({
 		title: z
 			.string()
+			.trim()
 			.min(3, {
 				message: "Produkto pavadinimas negali būti trumpesnis nei 3 simboliai",
 			})
@@ -68,9 +69,13 @@ app.post("/products", async (req, res) => {
 app.delete("/products/:id", async (req, res) => {
 	const id = req.params.id;
 	const data = await connection.query("DELETE FROM products WHERE id = ?", id);
-	console.log(data);
+	if (data[0].affectedRows === 0)
+		return res.status(404).json({ message: "Produktas buvo nerastas" });
+
+	// TODO: Validuoti ar tikrai buvo ištrintas įrašas
 	res.status(200).send({ message: "Duomenys sėkmingai ištrinti" });
 });
+
 // Vieno produkto atnaujinimas
 app.put("/products/:id", async (req, res) => {
 	const id = req.params.id;

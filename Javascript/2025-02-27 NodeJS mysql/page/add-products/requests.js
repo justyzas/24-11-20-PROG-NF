@@ -5,7 +5,7 @@ productCreationForm.addEventListener("submit", async (event) => {
 
 	// console.log(event);
 
-	// Iš formos gauti duomenims paprastesniu būdu - FormData objektas
+	// Iš formos gauti duomenims paprastesniu būdu - FormData objektas, konstruktoriui reikalingas formos elementas
 	const formData = new FormData(event.target);
 
 	// JSON duomenų išsiuntimas serveriui
@@ -22,14 +22,16 @@ productCreationForm.addEventListener("submit", async (event) => {
 		body: JSON.stringify(json),
 	});
 	const response = await promise.json();
-
+	// Atstatytų formos įvesties laukeliuose pradines reikšmes
+	// event.target.reset();
 	//Redirectinimas į kitą puslapį
-	// if (promise.ok) {
-	// 	window.location.href = "http://127.0.0.1:5500/page/";
-	// }
+	if (promise.ok) {
+		window.location.href = "http://127.0.0.1:5500/page/";
+	} else {
+		alert(response.message);
+	}
 
 	// Formos duomenų ištrynimas
-	event.target.reset();
 
 	// Konkrečių formos įvesties laukelių reikšmių gavimas
 	// console.log(typeof formData.get("product-name"));

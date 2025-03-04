@@ -1,16 +1,18 @@
+//delete-id - Mygtuko atributas, aprašantis duomens id, kuris turėtų būti ištrintas.
+//.button-delete - klasė pasirinkti mygtukams, skirtiems ištrinti įrašus
+
 export function generateProductsHtml(products) {
 	return products
 		.map((product) => {
 			return `
-    <div class="p-4 mb-3 bg-light rounded">
-					<p><b>Pavadinimas</b> ${product.title}</p>
-
-					<p>
-						<b>Aprašymas</b> ${product.description}
+    <div class="p-4 mb-3 bg-light rounded" product-id="${product.id}">
+					<p class="title"><b>Pavadinimas</b> <span>${product.title}</span></p>
+					<p class="description">
+						<b>Aprašymas</b> <span>${product.description}</span>
 					</p>
-					<p><b>Kaina</b> ${product.price}€</p>
-					<button class="btn btn-danger button-delete" delete-id="${product.id}">Ištrinti</button>
-					<button class="btn btn-primary">Atnaujinti</button>
+					<p class="price"><b>Kaina</b> <span>${product.price}€</span></p>
+					<button class="btn btn-danger button-delete">Ištrinti</button>
+					<button class="btn btn-primary button-update">Atnaujinti</button>
 				</div>`;
 		})
 		.join("");
