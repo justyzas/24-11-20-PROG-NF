@@ -70,9 +70,9 @@ function enterProductEditMode(id) {
 	generateInputsForProduct(id, productDetails);
 	// IDĖJA 4. Atnaujinti atnaujinimo mygtuką - Padaryti jo tekstą į "Išsiūsti duomenis"
 	// 4. Išsiūsti duomenis, atšaukti mygtukų sukūrimas
+	createSaveAndCancelButtons(id, productDetails);
 	// 5. Pridėti event listenerius šiems mygtukams
 }
-
 function getProductDetails(id) {
 	const productDiv = document.querySelector(`[product-id="${id}"]`);
 
@@ -134,4 +134,73 @@ function generateInputsForProduct(id, productDetails) {
 	productTitle.appendChild(inputElementTitle);
 	productDescription.appendChild(inputElementDescription);
 	productPrice.appendChild(inputElementPrice);
+}
+function createSaveAndCancelButtons(id, productDetails) {
+	const buttonSave = document.createElement("button");
+	// TODO: išsiaiškinti, kodėl neužsideda margin
+	buttonSave.className = "btn btn-success mx-1 button-save";
+	buttonSave.innerText = "Išsaugoti";
+
+	const buttonCancel = document.createElement("button");
+	buttonCancel.className = "btn btn-secondary button-cancel";
+	buttonCancel.innerText = "Atšaukti";
+	buttonCancel.addEventListener("click", () => {
+		deleteAllInputs(id);
+		createProductData(id, productDetails);
+		deleteProductButtons(id);
+	});
+
+	buttonSave.addEventListener("click", async () => {
+		const newProduct = {};
+		["title", "description", "price"].forEach((name) => {
+			newProduct[name] = document.querySelector(`input[name="${name}"]`).value;
+		});
+		newProduct.price = Number(newProduct.price);
+		const promise = await fetch(`http://localhost:3069/products/${id}`, {
+			method: "PUT",
+			headers: {
+				"content-type": "application/json",
+			},
+			body: JSON.stringify(newProduct),
+		});
+		if (promise.ok) {
+			deleteAllInputs(id);
+			deleteProductButtons(id);
+			createProductData(id, newProduct);
+		} else {
+			alert("Produkto atnaujinimas nepavyko");
+		}
+	});
+	const productDiv = document.querySelector(`[product-id="${id}"]`);
+	productDiv.append(buttonSave, buttonCancel);
+}
+function deleteAllInputs(id) {
+	const inputParents = ["title", "description", "price"];
+	inputParents.forEach((parentClass) => {
+		document
+			.querySelector(`[product-id="${id}"]>p.${parentClass}>input`)
+			.remove();
+	});
+}
+function createProductData(id, product) {
+	const titleSpan = document.createElement("span");
+	titleSpan.innerText = product.title;
+	document.querySelector(`[product-id="${id}"] p.title`).append(titleSpan);
+
+	const descriptionSpan = document.createElement("span");
+	descriptionSpan.innerText = product.description;
+	document
+		.querySelector(`[product-id="${id}"] p.description`)
+		.append(descriptionSpan);
+
+	const priceSpan = document.createElement("span");
+	console.log(product);
+	priceSpan.innerText = Number(product.price).toFixed(2) + "€";
+	document.querySelector(`[product-id="${id}"] p.price`).append(priceSpan);
+}
+
+function deleteProductButtons(id) {
+	["button-cancel", "button-save"].forEach((className) => {
+		document.querySelector(`[product-id="${id}"] button.${className}`).remove();
+	});
 }
