@@ -1,0 +1,17 @@
+{
+	"name": "2025-03-06-sequelize",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"type": "module",
+	"scripts": {
+		"dev": "nodemon"
+	},
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"express": "^4.21.2",
+		"mysql2": "^3.13.0",
+		"sequelize": "^6.37.6"
+	}
+}
