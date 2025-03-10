@@ -1,0 +1,18 @@
+{
+	"name": "2025-03-10-sequelize-associations",
+	"version": "1.0.0",
+	"description": "- Susipažinti su MVC projekto struktūriniu dizaino šablonu\r - Suprasti ryšį tarp modelių _1 su 1_ _(1:1)_\r - Suprasti ryšį tarp modelių _1 su daug_ _(1:N)_\r - Suprasti ryšį tarp modelių _daug su daug_ _(M:N)_\r - Sukurti naudotojo ir adreso modelius, bei juos susieti 1:1 ryšiu\r - Sukurti naudotojo ir banko sąskaitos modelius. Juos susieti 1:N ryšiu\r - Sukurti Aktoriaus ir filmo modelius. Juos susieti M:N ryšiu.",
+	"main": "index.js",
+	"type": "module",
+	"scripts": {
+		"dev": "nodemon"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"express": "^4.21.2",
+		"mysql2": "^3.13.0",
+		"sequelize": "^6.37.6"
+	}
+}
