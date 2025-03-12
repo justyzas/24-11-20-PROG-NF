@@ -7,7 +7,7 @@ const sequelize = new Sequelize({
 	host: "localhost",
 	dialect: "mysql",
 });
-new Sequelize();
+
 await sequelize.authenticate();
 console.log("Connection to database has been established successfully.");
 
