@@ -31,8 +31,6 @@ app.get("/user/:id", async (req, res) => {
 
 // profile creation
 app.post("/profile/:userId", async (req, res) => {
-	//1. malformed ID
-	//2. useris neegzistuoja
 	try {
 		const id = req.params.userId;
 		const profileData = generateRandomProfile();
