@@ -1,54 +1,57 @@
 import express from "express";
 import sequelize from "./setup/setup-sequelize.js";
 import "./models/index.js";
-import User from "./models/User.model.js";
-import {
-	generateRandomProfile,
-	generateRandomUser,
-} from "./lib/utils/generate.js";
-import Profile from "./models/Profile.model.js";
+
+import { generateRandomBook } from "./lib/utils/generate.js";
+import Book from "./models/Book.model.js";
+import Author from "./models/Author.model.js";
+import { AuthorBooks } from "./models/assocations.js";
+import userRouter from "./routers/user.js";
+import profileRouter from "./routers/profile.js";
+import postRouter from "./routers/post.js";
+import authorRouter from "./routers/author.js";
 
 const app = express();
 app.use(express.json());
 
-// user creation
-app.post("/user", async (req, res) => {
-	// const userData = req.body;
-	const userData = generateRandomUser();
-	const newUser = await User.create(userData);
-	res.send(newUser);
+app.use("/user", userRouter);
+app.use("/profile", profileRouter);
+app.use("/post", postRouter);
+app.use("/author", authorRouter);
+
+// book creation
+app.post("/book", async (req, res) => {
+	const bookData = generateRandomBook();
+	const newBook = await Book.create(bookData);
+
+	const author1 = await Author.findByPk(5);
+	await newBook.addAuthor(author1);
+
+	const author2 = await Author.findByPk(6);
+	await newBook.addAuthor(author2);
+
+	const author3 = await Author.findByPk(7);
+	await newBook.addAuthor(author3);
+
+	res.json(newBook);
 });
 
-// getting user
-app.get("/user/:id", async (req, res) => {
-	const id = req.params.id;
-	const user = await User.findByPk(id, {
-		include: [Profile],
+// getting book by its id
+app.get("/book/:bookId", async (req, res) => {
+	const bookId = req.params.bookId;
+	const book = await Book.findByPk(bookId, {
+		include: [Author],
 	});
-	if (!user) return res.status(404).json({ message: "nerastas" });
-	res.json(user);
+
+	res.json(book);
 });
 
-// profile creation
-app.post("/profile/:userId", async (req, res) => {
-	try {
-		const id = req.params.userId;
-		const profileData = generateRandomProfile();
-		const newProfile = await Profile.create({
-			...profileData,
-			userId: id,
-		});
-		res.json(newProfile);
-	} catch (err) {
-		res.status(400).json({ message: "No such user or id is malformed" });
-	}
-});
+// creating relations between authors and books
+app.post("/link-author-book", async (req, res) => {
+	const relations = req.body;
+	await AuthorBooks.bulkCreate(relations);
 
-// getting profile
-app.get("/profile/:profileId", async (req, res) => {
-	const profile = await Profile.findByPk(req.params.profileId);
-	if (!profile) return res.status(404).json({ message: "Not found!" });
-	res.json(profile);
+	res.json({ message: "Author and book was successfully joined" });
 });
 
 app.listen(3000, () => {
