@@ -1,0 +1,35 @@
+.card {
+	padding: 1rem;
+	box-shadow: 0 0 5px rgb(222, 222, 222);
+	position: relative;
+	h4 {
+		margin-top: 0;
+	}
+	p {
+		font-size: 2.5em;
+		margin-bottom: 0;
+		margin-top: 0.5em;
+	}
+}
+
+.card-active {
+	background: rgb(29, 225, 172);
+	background: linear-gradient(
+		73deg,
+		rgb(117, 104, 148) 10%,
+		rgba(73, 3, 251, 1) 100%
+	);
+	color: white;
+}
+
+.card-icon {
+	position: absolute;
+	top: 1rem;
+	right: 1rem;
+}
+
+.card-container {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	gap: 1rem;
+}
