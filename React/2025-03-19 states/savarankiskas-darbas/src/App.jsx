@@ -10,9 +10,9 @@ export default function App() {
 				LABAS ZUIKI!
 			</K1>
 			<K2 txt="LABAS ZUIKI!" />
-			<K3 atr={1}>Tekstas</K3>
-			<K3 atr={2}>Tekstas</K3>
-			<K3 atr={0}>Tekstas</K3>
+			<K3 atr={1}>Zebrai ir Bebrai</K3>
+			<K3 atr={2}>Zebrai ir Bebrai</K3>
+			<K3 atr={0}>Zebrai ir Bebrai</K3>
 
 			<K4 a1="tekstas1" />
 			<K4 a2="tekstas2" />
@@ -23,7 +23,7 @@ export default function App() {
 			<K5
 				a1="Tekstas pirmas"
 				a2="Tekstas kitas"
-				a3="#999999"
+				color="#999999"
 			/>
 		</main>
 	);
@@ -39,7 +39,7 @@ function K1(p) {
 		<p
 			style={{
 				color: "pink",
-				fontSize: `${p.size}px`,
+				fontSize: `${p.size || 16}px`,
 			}}
 		>
 			{p.children}
@@ -90,11 +90,11 @@ function K4({ a1, a2 }) {
 // o antras bet koks tekstas kuris atvaizduojamas h2 tage,
 // o trečias yra spalva, kuria nudažomi abu tekstai.
 
-function K5({ a1, a2, a3 }) {
+function K5({ a1, a2, color }) {
 	return (
 		<>
-			{a1 && <h1 style={{ color: a3 }}>{a1}</h1>}
-			{a2 && <h2 style={{ color: a3 }}>{a2}</h2>}
+			{a1 && <h1 style={{ color: color }}>{a1}</h1>}
+			{a2 && <h2 style={{ color: color }}>{a2}</h2>}
 		</>
 	);
 }

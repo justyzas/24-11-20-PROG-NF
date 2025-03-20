@@ -3,9 +3,7 @@ import { useState } from "react";
 export default function App() {
 	const [count, setCount] = useState(0);
 	const [increaseBy, setIncreaseBy] = useState(1);
-	// let increaseBy = 1;
 
-	// fontSize
 	function increaseCount() {
 		setCount(count + increaseBy);
 	}
