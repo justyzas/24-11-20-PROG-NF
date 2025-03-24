@@ -1,0 +1,10 @@
+.participants-table{
+  margin-top: 3rem;
+  width: 100%;
+  text-align: center;
+}
+
+table.participants-table, .participants-table th, .participants-table td{
+  border: 1px solid black;
+  border-collapse: collapse;
+}
