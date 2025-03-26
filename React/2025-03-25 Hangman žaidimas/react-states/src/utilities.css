@@ -1,0 +1,10 @@
+.mt-2 {
+	margin-top: 1rem;
+}
+
+.text-red {
+	color: rgb(237, 51, 51);
+}
+.text-success {
+	color: rgb(47, 144, 58);
+}

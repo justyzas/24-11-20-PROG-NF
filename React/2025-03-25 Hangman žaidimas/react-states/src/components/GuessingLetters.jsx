@@ -2,7 +2,7 @@ import GuessingLetter from "./GuessingLetter";
 
 export default function GuessingLetters(props) {
 	const word = props.correctWord.word;
-	const letters = word.toUpperCase().split("");
+	const letters = word.toUpperCase().split(""); //["K", "I", "B","I"....]
 	const guessedLetters = props.guessedLetters; // ["A"]
 	console.log(word);
 	return (
