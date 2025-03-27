@@ -1,0 +1,23 @@
+[
+	{
+		"id": 1,
+		"serija": "LTE-077",
+		"suma": 87.02,
+		"saskaitosGavejas": "UAB Trys paršiukai keturios kojytės",
+		"saskaitosIsrasytojas": "MB Du paršiukai penkios kojytės"
+	},
+	{
+		"id": 2,
+		"serija": "PUJ-2952",
+		"suma": 2587.02,
+		"saskaitosGavejas": "UAB Kaltinėnai",
+		"saskaitosIsrasytojas": "IĮ. John Dope"
+	},
+	{
+		"id": 3,
+		"serija": "DOP-477",
+		"suma": 222.0,
+		"saskaitosGavejas": "UAB Trys paršiukai keturios kojytės",
+		"saskaitosIsrasytojas": "UAB Kaltinėnai"
+	}
+]
