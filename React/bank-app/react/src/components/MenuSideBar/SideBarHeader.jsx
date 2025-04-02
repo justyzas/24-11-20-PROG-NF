@@ -1,4 +1,5 @@
 import { FaArtstation, FaRegBell } from "react-icons/fa";
+import IconWithNumber from "../ui/IconWithNumber";
 export default function SideBarHeader() {
 	return (
 		<div className="flex justify-between items-center p-4 text-2xl ">
@@ -6,7 +7,9 @@ export default function SideBarHeader() {
 				<FaArtstation className="text-5xl" />
 				<span>cepol.</span>
 			</span>
-			<FaRegBell />
+			<IconWithNumber number={4}>
+				<FaRegBell />
+			</IconWithNumber>
 		</div>
 	);
 }

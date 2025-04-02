@@ -1,5 +1,6 @@
 import { FaHouseChimney } from "react-icons/fa6";
 import { IoDocumentTextOutline } from "react-icons/io5";
+import { FaRegFolder } from "react-icons/fa";
 const links = [
 	{
 		name: "Home",
@@ -7,11 +8,11 @@ const links = [
 	},
 	{
 		name: "Contracts",
-		icon: FaHouseChimney,
+		icon: IoDocumentTextOutline,
 	},
 	{
 		name: "Documents",
-		icon: IoDocumentTextOutline,
+		icon: FaRegFolder,
 	},
 	{
 		name: "Invoices",
