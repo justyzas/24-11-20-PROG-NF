@@ -13,3 +13,5 @@
 
 - Paleisti express aplikaciją su :80 Port
 - Sudaryti prieigą per express pasiekti react aplikaciją
+- Prisijungti prie mysql duomenų bazės
+-
