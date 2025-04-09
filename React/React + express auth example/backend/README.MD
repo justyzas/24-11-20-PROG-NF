@@ -14,4 +14,5 @@
 - Paleisti express aplikaciją su :80 Port
 - Sudaryti prieigą per express pasiekti react aplikaciją
 - Prisijungti prie mysql duomenų bazės
--
+- Sudaryti route endpoint'us registracijai, prisijungimui, atsijungimui
+- Užtikrinti kad šie enpoint'ai validuotų ateinančią informaciją ir pateiktų informatyvius atsakymus.
