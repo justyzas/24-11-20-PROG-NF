@@ -21,7 +21,7 @@ export default function configSessions(app) {
 			saveUninitialized: false,
 			store: mysqlStore,
 			cookie: {
-				maxAge: 1000 * 60,
+				maxAge: 1000 * 60 * 60 * 24,
 			},
 		})
 	);

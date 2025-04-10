@@ -6,8 +6,8 @@ export default z.object({
 		.email({ message: "Elektroninio pašto formatas yra netinkamas!" }),
 	password: z
 		.string()
-		.min(8)
-		.max(100)
+		.min(8, { message: "Slaptažodis privalo būti bent 8 simbolių ilgio" })
+		.max(100, { message: "Slaptažodis privalo būti iki 100 simbolių ilgio" })
 		.regex(/[a-ząčęėįšųūž]/g, {
 			message: "Slaptažodis privalo turėti bent vieną mažąją raidę",
 		})

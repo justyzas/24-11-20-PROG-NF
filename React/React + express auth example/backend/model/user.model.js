@@ -19,9 +19,9 @@ export async function getUserByEmail(email) {
 	]);
 	if (result.length === 0)
 		throw new Error("User was not found", {
-			err: "NOT_FOUND",
-			field: email,
+			cause: "NOT_FOUND",
 		});
+	new Error();
 	return result[0];
 }
 

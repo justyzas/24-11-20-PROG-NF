@@ -14,8 +14,9 @@ const router = express.Router();
 // /api/auth/login
 
 router.post("/register", async (req, res) => {
+	console.log("/api/auth/registration");
 	try {
-		registrationSchema.parse(req.body);
+		registrationSchema.parse(req.body); // Validuojame
 
 		const salt = generateSalt();
 		const hashedPassword = hashPassword(req.body.password, salt);
@@ -23,13 +24,13 @@ router.post("/register", async (req, res) => {
 
 		const userFromDb = await createUser(user);
 
-		req.session.user = {
-			id: user.id,
-			email: user.email,
-			firstName: user.firstName,
-			lastName: user.lastName,
-			isLoggedIn: true,
-		};
+		// req.session.user = {
+		// 	id: user.id,
+		// 	email: user.email,
+		// 	firstName: user.firstName,
+		// 	lastName: user.lastName,
+		// 	isLoggedIn: true,
+		// };
 
 		res.status(200).send({
 			message: "✅ Registration was successful!",
@@ -53,6 +54,7 @@ router.post("/register", async (req, res) => {
 });
 
 router.post("/login", async (req, res) => {
+	console.log("/api/auth/login");
 	try {
 		const { email, password } = req.body;
 		loginSchema.parse(req.body);
@@ -84,12 +86,17 @@ router.post("/login", async (req, res) => {
 					"Įvyko įterpimo klaida - naudotojas su tokiu elektroniniu paštu jau yra užregistruotas",
 			});
 		}
+		if (err instanceof Error && err.cause === "NOT_FOUND")
+			return res
+				.status(400)
+				.json({ message: "Prisijungimo duomenys yra neteisingi!" });
 		console.log(err);
 		res.status(500).json({ message: "Internal server error occured" });
 	}
 });
 
 router.get("/logout", (req, res) => {
+	console.log("/api/auth/logout");
 	try {
 		req.session.destroy();
 		res.status(200).json({ message: "Sėkmingai atsijungėte nuo sistemos" });
@@ -101,4 +108,8 @@ router.get("/logout", (req, res) => {
 	}
 });
 
+router.get("/session", async (req, res) => {
+	console.log("/api/auth/session");
+	res.status(200).json(req.session.user || { isLoggedIn: false });
+});
 export default router;
