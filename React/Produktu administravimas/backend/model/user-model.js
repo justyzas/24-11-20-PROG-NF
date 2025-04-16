@@ -2,8 +2,9 @@ import {
 	generateSalt,
 	hashPassword,
 } from "../lib/security.js";
-
-class UserModel{
+import UpdateUserSchema from "../lib/validations/update-user.js";
+import db from "../config/connect-mysql.js";
+export class UserModel{
 
     static async create(userDto)
     {
@@ -19,6 +20,7 @@ class UserModel{
         userDto.id = result.insertId;
         return userDto;
     }
+
     static async getUserByEmail(email) {
         if(typeof email !=="string") throw new Error("Expected to get email as a string", "ERR_WRONG_FIELD_TYPE");
         const [result] = await db.execute(`SELECT * FROM users WHERE email = ?;`, [
@@ -30,8 +32,9 @@ class UserModel{
             });
         return new UserDTO(result[0]);
     }
+
     static async getUserById(id) {
-        if(typeof id !=="number") throw new Error("Expected to get id as a number", "ERR_WRONG_FIELD_TYPE");
+        if(typeof id !== "number") throw new Error("Expected to get id as a number", "ERR_WRONG_FIELD_TYPE");
         const [result] = await db.execute(`SELECT * FROM users WHERE id = ?;`, [
             id,
         ]);
@@ -42,11 +45,35 @@ class UserModel{
         return new UserDTO(result[0]);
     }
 
-    // 1. sukurti userį
-    // 2. gauti userį (pagal: id, email)
-    // 3. gauti userius (visus)
-    // 4. atnaujinti bet kurį laukelį
-    // 5. ištrinti (id, email)
+    static async getAll()
+    {
+       const [result] = await db.execute("SELECT * FROM users;");
+        const userDtoArray = result.map(user=>new UserDTO(user));
+        return userDtoArray;
+    } 
+
+    static async update(id, updateData)
+    {
+        const validatedUpdateData = UpdateUserSchema.parse(updateData);
+        const [fieldsString, fieldValuesArray] = generateUpdateSegment(validatedUpdateData);
+        const [result, options] = await db.execute(
+            `UPDATE user SET ${fieldsString} WHERE id = ?;`,
+             [...fieldValuesArray, id]
+        );
+    }
+
+    static async deleteById(id)
+    {
+        if(typeof id !== "number") throw new Error("Expected to get id as a number", "ERR_WRONG_FIELD_TYPE");
+        const [result] = await db.execute(`DELETE FROM user WHERE id = ?;`, [id]);
+        console.log(result);
+    }
+
+    static async deleteByEmail(email)
+    {
+        if(typeof email !== "string") throw new Error("Expected to get email as a string", "ERR_WRONG_FIELD_TYPE");
+        const [result] = await db.execute(`DELETE FROM user WHERE email = ?;`, [email]);
+    }
 }
 
 

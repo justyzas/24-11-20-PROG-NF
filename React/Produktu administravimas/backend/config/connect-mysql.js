@@ -5,7 +5,7 @@ try {
 		host: "localhost",
 		user: "root",
 		password: "",
-		database: "auth_app",
+		database: "product_administration_db",
 	});
 	console.log("✅ Prisijungimas prie duomenų bazės pavyko");
 } catch (err) {

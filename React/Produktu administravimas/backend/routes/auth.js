@@ -5,7 +5,7 @@ import {
 	hashPassword,
 	isValidCredentials,
 } from "../lib/security.js";
-import { createUser, getUserByEmail } from "../model/user.model.js";
+import { UserDTO, UserModel } from "../model/user-model.js";
 import registrationSchema from "../lib/validations/register.js";
 import loginSchema from "../lib/validations/login.js";
 import { ZodError } from "zod";
@@ -17,12 +17,8 @@ router.post("/register", async (req, res) => {
 	console.log("/api/auth/registration");
 	try {
 		registrationSchema.parse(req.body); // Validuojame
-
-		const salt = generateSalt();
-		const hashedPassword = hashPassword(req.body.password, salt);
-		const user = { ...req.body, salt, password: hashedPassword };
-
-		const userFromDb = await createUser(user);
+		const user = new UserDTO(req.body);
+		const userFromDb = await UserModel.create(user);
 
 		// req.session.user = {
 		// 	id: user.id,
@@ -34,7 +30,7 @@ router.post("/register", async (req, res) => {
 
 		res.status(200).send({
 			message: "✅ Registration was successful!",
-			user: { ...userFromDb, password: undefined, salt: undefined },
+			user: userFromDb,
 		});
 	} catch (err) {
 		if (err instanceof ZodError)
