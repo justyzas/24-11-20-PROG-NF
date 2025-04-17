@@ -1,4 +1,4 @@
-import {z} from "zod";
+import { z } from "zod";
 import UpdateProductSchema from "../lib/validations/update-product.js";
 import db from "../config/connect-mysql.js";
 export class ProductModel{
@@ -36,7 +36,7 @@ export class ProductModel{
     //3. gauti produktų sąrašą
     static async getAllProducts()
     {
-         const [result] = await db.execute("SELECT * FROM products;");
+         const [result] = await db.execute("SELECT * FROM product;");
         const productDtoArray = result.map(product=>new ProductDTO(product));
          return productDtoArray;
     }
@@ -64,7 +64,7 @@ export class ProductModel{
 
 
 
-const ProductCreationValidation = z.object({
+export const ProductCreationValidation = z.object({
     id: z.number().optional(),
     name: z.string().min(5).max(255),
     description: z.string().max(1000).optional(),
@@ -93,6 +93,7 @@ export class ProductDTO{
 
     constructor(obj)
     {
+
         const validatedProduct = ProductCreationValidation.parse(obj);
         Object.entries(validatedProduct).forEach(([key, value])=>{
             this[key] = value;
@@ -116,7 +117,17 @@ export class ProductDTO{
 
     getObjectForCreation()
     {
-        return {name: this.name, price: this.price};
+        return {name: this.name, price: this.price};//others have default or is null
     }
 
+    static getProductFieldsFromAnotherObject(obj)
+    {
+        const productObj = {};
+        Object.entries(obj)
+        .filter(([fieldName]) => fieldName.toLowerCase().startsWith("product_"))
+        .forEach(([fieldName, value])=>{
+            productObj[fieldName.replace("product_", "")] = value;
+        });
+        return new ProductDTO(productObj);
+    }
 }

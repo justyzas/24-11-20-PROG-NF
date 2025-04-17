@@ -22,8 +22,8 @@ export class UserModel{
     }
 
     static async getUserByEmail(email) {
-        if(typeof email !=="string") throw new Error("Expected to get email as a string", "ERR_WRONG_FIELD_TYPE");
-        const [result] = await db.execute(`SELECT * FROM users WHERE email = ?;`, [
+        if(typeof email !== "string") throw new Error("Expected to get email as a string", "ERR_WRONG_FIELD_TYPE");
+        const [result] = await db.execute(`SELECT * FROM user WHERE email = ?;`, [
             email,
         ]);
         if (result.length === 0)
@@ -35,7 +35,7 @@ export class UserModel{
 
     static async getUserById(id) {
         if(typeof id !== "number") throw new Error("Expected to get id as a number", "ERR_WRONG_FIELD_TYPE");
-        const [result] = await db.execute(`SELECT * FROM users WHERE id = ?;`, [
+        const [result] = await db.execute(`SELECT * FROM user WHERE id = ?;`, [
             id,
         ]);
         if (result.length === 0)
@@ -45,9 +45,13 @@ export class UserModel{
         return new UserDTO(result[0]);
     }
 
-    static async getAll()
+    static async getAll(options)
     {
-       const [result] = await db.execute("SELECT * FROM users;");
+        let sqlSortStatement = "";
+        if(options?.sort?.attribute){
+            sqlSortStatement = ` ORDER BY ${options?.sort?.attribute} ${options?.sort?.order || "ASC"}`
+        }
+       const [result] = await db.execute(`SELECT * FROM user${sqlSortStatement};`);
         const userDtoArray = result.map(user=>new UserDTO(user));
         return userDtoArray;
     } 
@@ -136,5 +140,13 @@ export class UserDTO{
             password: this.#password,
             salt: this.#salt
         }
+    }
+    getPassword()
+    {
+        return this.#password;
+    }
+    getSalt()
+    {
+        return this.#salt;
     }
 }

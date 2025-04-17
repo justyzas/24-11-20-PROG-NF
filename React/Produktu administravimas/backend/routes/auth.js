@@ -1,8 +1,5 @@
 import express from "express";
-import db from "../config/connect-mysql.js";
 import {
-	generateSalt,
-	hashPassword,
 	isValidCredentials,
 } from "../lib/security.js";
 import { UserDTO, UserModel } from "../model/user-model.js";
@@ -54,12 +51,12 @@ router.post("/login", async (req, res) => {
 	try {
 		const { email, password } = req.body;
 		loginSchema.parse(req.body);
-		const user = await getUserByEmail(email);
+		const user = await UserModel.getUserByEmail(email);
 
-		if (!isValidCredentials(password, user.salt, user.password))
+		if (!isValidCredentials(password, user.getSalt(), user.getPassword()))
 			return res
 				.status(403)
-				.json({ message: "Pateiktas slaptažodis neatitiko" });
+				.json({ message: "Pateiktas prisijungimo duomenys buvo neteisingi" });
 
 		req.session.user = {
 			id: user.id,
@@ -76,15 +73,9 @@ router.post("/login", async (req, res) => {
 				message: "Įvyko validacijos klaida",
 				validationMessage: err.issues[0].message,
 			});
-		if (err instanceof Error && err.code === "ER_DUP_ENTRY") {
-			return res.status(409).json({
-				message:
-					"Įvyko įterpimo klaida - naudotojas su tokiu elektroniniu paštu jau yra užregistruotas",
-			});
-		}
 		if (err instanceof Error && err.cause === "NOT_FOUND")
 			return res
-				.status(400)
+				.status(403)
 				.json({ message: "Prisijungimo duomenys yra neteisingi!" });
 		console.log(err);
 		res.status(500).json({ message: "Internal server error occured" });
