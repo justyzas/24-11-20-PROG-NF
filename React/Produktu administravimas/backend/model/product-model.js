@@ -127,6 +127,7 @@ export class ProductDTO{
         .filter(([fieldName]) => fieldName.toLowerCase().startsWith("product_"))
         .forEach(([fieldName, value])=>{
             productObj[fieldName.replace("product_", "")] = value;
+            delete obj[fieldName];
         });
         return new ProductDTO(productObj);
     }

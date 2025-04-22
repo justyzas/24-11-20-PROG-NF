@@ -73,15 +73,25 @@ export class ProductImageDTO{
     productImageFileName;
     
     constructor(productImage){
-        const isThereAProduct = Object.keys(productImage).some(key=>key.includes("product_"));
-        const ProductDto = ProductDTO.getProductFieldsFromAnotherObject(productImage);
+        const isThereAProductFromDB = Object.keys(productImage).some(key=>key.includes("product_"));
+        if(isThereAProductFromDB)return this.fromDbResponse(productImage);
         // ---------------------
         const validProductImage = ProductImageDTOSchema.parse(productImage);
-        Object.entries(validProductImage).forEach(([key, value])=>{
-            this[key] = value;
-        });
+        this.#setProductKeysFromEntries(productImage);
         if(validProductImage?.product)
             this.product = new ProductDTO(validProductImage.product);
+    }
+    #setProductKeysFromEntries(o)
+    {
+        Object.entries(o).forEach(([key, value])=>{
+            this[key] = value;
+        });
+    }
+    fromDbResponse(productImage)
+    {
+        const productDto = ProductDTO.getProductFieldsFromAnotherObject(productImage);
+        this.#setProductKeysFromEntries(productImage);
+        return this;
     }
 
     toJSON()
