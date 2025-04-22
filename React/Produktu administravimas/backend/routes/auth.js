@@ -6,6 +6,7 @@ import { UserDTO, UserModel } from "../model/user-model.js";
 import registrationSchema from "../lib/validations/register.js";
 import loginSchema from "../lib/validations/login.js";
 import { ZodError } from "zod";
+import { handle } from "../lib/handleRouteHandlerErorrs.js";
 const router = express.Router();
 
 // /api/auth/login
@@ -30,19 +31,14 @@ router.post("/register", async (req, res) => {
 			user: userFromDb,
 		});
 	} catch (err) {
-		if (err instanceof ZodError)
-			return res.status(400).json({
-				message: "Įvyko validacijos klaida",
-				validationMessage: err.issues[0].message,
-			});
+
 		if (err instanceof Error && err.code === "ER_DUP_ENTRY") {
 			return res.status(409).json({
 				message:
 					"Įvyko įterpimo klaida - naudotojas su tokiu elektroniniu paštu jau yra užregistruotas",
 			});
 		}
-		console.log(err);
-		res.status(500).json({ message: "Internal server error occured" });
+		handle(err, res);
 	}
 });
 
@@ -68,17 +64,11 @@ router.post("/login", async (req, res) => {
 
 		res.status(200).send({ message: "Prisijungimas buvo sėkmingas" });
 	} catch (err) {
-		if (err instanceof ZodError)
-			return res.status(400).json({
-				message: "Įvyko validacijos klaida",
-				validationMessage: err.issues[0].message,
-			});
 		if (err instanceof Error && err.cause === "NOT_FOUND")
 			return res
 				.status(403)
 				.json({ message: "Prisijungimo duomenys yra neteisingi!" });
-		console.log(err);
-		res.status(500).json({ message: "Internal server error occured" });
+		handle(err ,res);
 	}
 });
 

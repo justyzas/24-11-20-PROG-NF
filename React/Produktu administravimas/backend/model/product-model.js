@@ -13,9 +13,9 @@ export class ProductModel{
 
         const [result] = await db.execute(
             `INSERT INTO product 
-            (name, price)
-            VALUES (?, ?);`,
-            [data.name, data.price]
+            (name, price, description, quantity, status)
+            VALUES (?, ?, ?, ?, ?);`,
+            [data.name, data.price, data.description, data.quantity, data.status]
         );
         productDto.id = result.insertId;
         return productDto;
@@ -98,6 +98,10 @@ export class ProductDTO{
         Object.entries(validatedProduct).forEach(([key, value])=>{
             this[key] = value;
         });
+        this.description = obj.description || null
+        this.quantity = obj.quantity || 0;
+        console.log(obj);
+        this.status = obj.status || (this.quantity >= 10 ? "Aktyvus" : "Mažėjantis likutis");
     }
 
     toJSON()
@@ -117,7 +121,14 @@ export class ProductDTO{
 
     getObjectForCreation()
     {
-        return {name: this.name, price: this.price};//others have default or is null
+        const createObj = {
+            name: this.name, 
+            price: this.price, 
+            description: this.description, 
+            quantity: this.quantity, 
+            status: this.status
+        };
+        return createObj;
     }
 
     static getProductFieldsFromAnotherObject(obj)

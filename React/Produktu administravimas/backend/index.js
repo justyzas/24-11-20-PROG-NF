@@ -2,6 +2,7 @@ import express from "express";
 import { createProxyMiddleware } from "http-proxy-middleware";
 import "./config/connect-mysql.js";
 import authRouter from "./routes/auth.js";
+import productsRouter from "./routes/products.js";
 import configSessions from "./config/setup-sessions.js";
 const app = express();
 
@@ -15,6 +16,7 @@ const proxyMiddleware = createProxyMiddleware({
 });
 
 app.use("/api/auth", authRouter);
+app.use("/api/products", productsRouter);
 app.use("/", proxyMiddleware);
 
 // http://localhost

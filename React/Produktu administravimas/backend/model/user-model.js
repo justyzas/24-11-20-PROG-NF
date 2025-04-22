@@ -4,6 +4,7 @@ import {
 } from "../lib/security.js";
 import UpdateUserSchema from "../lib/validations/update-user.js";
 import db from "../config/connect-mysql.js";
+import {z} from "zod";
 export class UserModel{
 
     static async create(userDto)
@@ -81,7 +82,14 @@ export class UserModel{
 }
 
 
-
+export const UserCreationValidation = z.object({
+    id: z.number().int().optional(),
+    firstName: z.string().min(3).max(255),
+    lastName: z.string().min(3).max(255),
+    email: z.string().email(),
+    password: z.string().optional(),
+    salt: z.string().optional()
+});
 // DTO klasės - Data transfer object. Duomenų pernešimo objektai, 
 // skirti apibrėžti naudojamo modelio struktūrai
 export class UserDTO{
@@ -141,10 +149,12 @@ export class UserDTO{
             salt: this.#salt
         }
     }
+
     getPassword()
     {
         return this.#password;
     }
+
     getSalt()
     {
         return this.#salt;

@@ -32,7 +32,7 @@ export class ProductImageModel{
         return new ProductImageDTO(result[0]);
     }
     // 4. Visų produkto nuotraukų gavimas
-    static async getAllProductImages(options)
+    static async getAllProductImages(productId, options)
     {
         // const options = {
         //     include: "product"
@@ -54,7 +54,7 @@ export class ProductImageModel{
                                 p.updated_at as product_updated_at`
             join = " LEFT JOIN product On pi.productId = p.id;";
         }
-        const [result] = await db.execute(`SELECT ${selectAttributes} FROM product_image${join}`);
+        const [result] = await db.execute(`SELECT ${selectAttributes} FROM product_image WHERE p.id=${productId}${join}`);
         return result.map(r=>new ProductImageDTO(r));
     }
 }
@@ -69,11 +69,11 @@ const ProductImageDTOSchema = z.object({
 export class ProductImageDTO{
     id;
     productId;
-    product;
+    product = null;
     productImageFileName;
     
     constructor(productImage){
-        const isThereAProductFromDB = Object.keys(productImage).some(key=>key.includes("product_"));
+        const isThereAProductFromDB = Object.keys(productImage).some(key=>key.startsWith("product_"));
         if(isThereAProductFromDB)return this.fromDbResponse(productImage);
         // ---------------------
         const validProductImage = ProductImageDTOSchema.parse(productImage);
@@ -90,6 +90,7 @@ export class ProductImageDTO{
     fromDbResponse(productImage)
     {
         const productDto = ProductDTO.getProductFieldsFromAnotherObject(productImage);
+        this.product = productDto;
         this.#setProductKeysFromEntries(productImage);
         return this;
     }
