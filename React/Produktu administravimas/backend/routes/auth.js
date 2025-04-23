@@ -1,22 +1,31 @@
 import express from "express";
 import {
+	generateSalt,
+	hashPassword,
 	isValidCredentials,
 } from "../lib/security.js";
-import { UserDTO, UserModel } from "../model/user-model.js";
 import registrationSchema from "../lib/validations/register.js";
 import loginSchema from "../lib/validations/login.js";
-import { ZodError } from "zod";
 import { handle } from "../lib/handleRouteHandlerErorrs.js";
+import User from "../models/user.js";
+import { isLogged, isNotLogged } from "../lib/middlewares/index.js";
 const router = express.Router();
 
 // /api/auth/login
 
-router.post("/register", async (req, res) => {
+router.post("/register", isNotLogged, async (req, res) => {
 	console.log("/api/auth/registration");
 	try {
-		registrationSchema.parse(req.body); // Validuojame
-		const user = new UserDTO(req.body);
-		const userFromDb = await UserModel.create(user);
+		const {firstName, lastName, email, password} = registrationSchema.parse(req.body); // Validuojame
+		const salt = generateSalt();
+		const user = await User.create({
+			firstName,
+			lastName,
+			email,
+			salt,
+			password: hashPassword(password, salt)
+		});
+		// const userFromDb = await UserModel.create(user);
 
 		// req.session.user = {
 		// 	id: user.id,
@@ -28,7 +37,7 @@ router.post("/register", async (req, res) => {
 
 		res.status(200).send({
 			message: "✅ Registration was successful!",
-			user: userFromDb,
+			user: {...user.toJSON(), password: undefined, salt: undefined},
 		});
 	} catch (err) {
 
@@ -42,14 +51,17 @@ router.post("/register", async (req, res) => {
 	}
 });
 
-router.post("/login", async (req, res) => {
+router.post("/login", isNotLogged, async (req, res) => {
 	console.log("/api/auth/login");
 	try {
 		const { email, password } = req.body;
 		loginSchema.parse(req.body);
-		const user = await UserModel.getUserByEmail(email);
-
-		if (!isValidCredentials(password, user.getSalt(), user.getPassword()))
+		const user = await User.findOne({where: {email}});
+		if(!user)
+			throw new Error("User was not found", {
+				cause: "NOT_FOUND",
+			});
+		if (!isValidCredentials(password, user.salt, user.password))
 			return res
 				.status(403)
 				.json({ message: "Pateiktas prisijungimo duomenys buvo neteisingi" });
@@ -72,7 +84,7 @@ router.post("/login", async (req, res) => {
 	}
 });
 
-router.get("/logout", (req, res) => {
+router.get("/logout", isLogged,(req, res) => {
 	console.log("/api/auth/logout");
 	try {
 		req.session.destroy();

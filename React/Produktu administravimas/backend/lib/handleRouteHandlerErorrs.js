@@ -1,7 +1,10 @@
+import { ZodError } from "zod";
 
 
 export function handle(err, res)
 {
+    console.log(err);
+
     if (err instanceof ZodError)
         return res.status(400).json({
             message: "Įvyko validacijos klaida",
@@ -19,6 +22,5 @@ export function handle(err, res)
                 "Įrašas nerastas duomenų bazėje.",
         });
     }
-    console.log(err);
     res.status(500).json({ message: "Internal server error occured" });
 }

@@ -15,9 +15,10 @@ const proxyMiddleware = createProxyMiddleware({
 	ws: true,
 });
 
-app.use("/api/auth", authRouter);
-app.use("/api/products", productsRouter);
-app.use("/", proxyMiddleware);
+app
+.use("/api/auth", authRouter)
+.use("/api/products", productsRouter)
+.use("/", proxyMiddleware);
 
 // http://localhost
 // https://localhost   //JEI PORT'as butu 465

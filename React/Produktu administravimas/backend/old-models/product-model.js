@@ -35,11 +35,13 @@ export class ProductModel{
     }
     //3. gauti produktų sąrašą
     static async getAllProducts()
-    {
-         const [result] = await db.execute("SELECT * FROM product;");
+    {        
+        const [result] = await db.execute(`SELECT * FROM product;`);
+        console.log(result);
         const productDtoArray = result.map(product=>new ProductDTO(product));
-         return productDtoArray;
+        return productDtoArray;
     }
+
     //4. atnaujinti produktą
     static async updateProduct(id, updateData)
     {
@@ -90,6 +92,7 @@ export class ProductDTO{
     deleted_at;
     updated_at;
 
+    productImage = null;
 
     constructor(obj)
     {
