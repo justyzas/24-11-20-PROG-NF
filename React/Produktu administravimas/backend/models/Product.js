@@ -29,6 +29,7 @@ const Product = sequelize.define(
     },
     {
       timestamps: true,
+      paranoid: true,
       createdAt: "created_at",
       updatedAt: "updated_at",
       deletedAt: "deleted_at",
@@ -46,4 +47,14 @@ const Product = sequelize.define(
       product.status = "Aktyvus";
     }
   });
+  Product.addHook("afterFind",(modelOrModels)=>{
+    if(modelOrModels===null)return;
+    if(Array.isArray(modelOrModels))
+      modelOrModels.forEach(m=>{
+        m.price = Number(m.price);
+      })
+    else{
+      modelOrModels.price = Number(modelOrModels.price);
+    }
+  })
   export default Product;

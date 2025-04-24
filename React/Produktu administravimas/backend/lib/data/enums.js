@@ -1,0 +1,1 @@
+export const positiveAnswer = ["yes", "y", "Y", "ok", "OK", "Ok", "sure", "good", "true", "t", "T"];

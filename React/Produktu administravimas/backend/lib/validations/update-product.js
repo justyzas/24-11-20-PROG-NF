@@ -6,6 +6,5 @@ export default z.object({
     quantity: z.number().min(0).optional(),
     status: z
     .enum(["Aktyvus", "Nebetiekiamas", "Mažėjantis likutis"])
-    .optional(),
-    deleted_at: z.date().optional(),
+    .optional()
 });

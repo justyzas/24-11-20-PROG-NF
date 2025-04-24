@@ -80,11 +80,11 @@ router.post("/login", isNotLogged, async (req, res) => {
 			return res
 				.status(403)
 				.json({ message: "Prisijungimo duomenys yra neteisingi!" });
-		handle(err ,res);
+		handle(err, res);
 	}
 });
 
-router.get("/logout", isLogged,(req, res) => {
+router.get("/logout", isLogged, (req, res) => {
 	console.log("/api/auth/logout");
 	try {
 		req.session.destroy();
