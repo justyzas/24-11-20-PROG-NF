@@ -1,5 +1,6 @@
 import {useLoaderData} from "react-router";
-
+import Button from '@mui/material/Button';
+import LogoutIcon from '@mui/icons-material/Logout';
 export default function HomePage() {
 	const loaderData = useLoaderData();
 	async function logout() {
@@ -19,7 +20,12 @@ export default function HomePage() {
 			<p>
 				<b>Elektroninio pašto adresas:</b> <span>{loaderData.email}</span>
 			</p>
-			<button onClick={logout}>Atsijungti</button>
+			<Button 
+				variant="text"
+				color="primary"
+				endIcon={<LogoutIcon/>}
+				onClick={logout}
+			>Atsijungti</Button>
 		</main>
 	);
 }
