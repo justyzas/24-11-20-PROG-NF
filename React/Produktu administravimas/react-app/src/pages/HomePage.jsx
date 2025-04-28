@@ -1,31 +1,12 @@
-import {useLoaderData} from "react-router";
-import Button from '@mui/material/Button';
-import LogoutIcon from '@mui/icons-material/Logout';
+import { useLoaderData } from "react-router";
+import Navigation from "../components/Navigation";
+
 export default function HomePage() {
 	const loaderData = useLoaderData();
-	async function logout() {
-		const promise = await fetch("/api/auth/logout");
-		if (!promise.ok) alert("Atsijungti nepavyko");
-		location.href = "/login";
-	}
 
 	return (
 		<main className="container container-padding-sm">
-			<p>
-				<b>Vardas:</b> <span>{loaderData?.firstName || ""}</span>
-			</p>
-			<p>
-				<b>Pavardė:</b> <span>{loaderData.lastName}</span>
-			</p>
-			<p>
-				<b>Elektroninio pašto adresas:</b> <span>{loaderData.email}</span>
-			</p>
-			<Button 
-				variant="text"
-				color="primary"
-				endIcon={<LogoutIcon/>}
-				onClick={logout}
-			>Atsijungti</Button>
+			<Navigation userData={loaderData} />
 		</main>
 	);
 }
